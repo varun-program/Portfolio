@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0a0f;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+header {
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 15px 5%;
+}
+
+.logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.logo span {
+  color: #00e5ff;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #00e5ff;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #001f3f, #000000 70%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+.hero h2 {
+  font-size: 2.5rem;
+}
+.hero h2 span {
+  background: linear-gradient(90deg, #00e5ff, #00ffb3);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.hero p {
+  max-width: 600px;
+  margin: 15px auto;
+  color: #bbb;
+}
+.btn {
+  background: linear-gradient(90deg, #00e5ff, #00ffb3);
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* About */
+.about, .projects, .contact {
+  padding: 80px 10%;
+  text-align: center;
+}
+.about h2, .projects h2, .contact h2 {
+  color: #00e5ff;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px #00e5ff30;
+}
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.project-info {
+  padding: 15px;
+}
+.project-info h3 {
+  color: #fff;
+  margin: 10px 0;
+}
+.project-info p {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+.btn-small {
+  background: #00e5ff;
+  color: #000;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn-small:hover {
+  background: #00ffb3;
+}
+
+/* Contact */
+.contact p {
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+/* Social Bar */
+.social-bar {
+  position: fixed;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+}
+.social-bar a {
+  color: #00e5ff;
+  text-decoration: none;
+  background: rgba(255,255,255,0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+.social-bar a:hover {
+  background: #00e5ff;
+  color: #000;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #050508;
+  color: #888;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
