@@ -1,3 +1,4 @@
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -88,7 +89,7 @@ nav {
   transform: scale(1.05);
 }
 
-/* About */
+/* About, Projects, Contact Sections */
 .about, .projects, .contact {
   padding: 80px 10%;
   text-align: center;
@@ -186,13 +187,14 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Fade-in Animation */
-.fade-in {
+/* Scroll Reveal Animation (JS powered) */
+.fade-in, .project-card {
   opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s forwards;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
 }
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+
+.fade-in.show, .project-card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
