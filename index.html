@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Varun G | Full-Stack & Java Developer</title>
-  <meta name="description" content="Portfolio of Varun G, Full-Stack and Java Developer with expertise in React, JavaScript, Node.js, and AI-powered systems.">
+  <title>Varun G — Software Developer & Full-Stack Engineer</title>
+  <meta name="description" content="Official portfolio of Varun G, Full-Stack and Java Developer. Specializing in React, Node.js, Java, and modern web architectures.">
   
-  <!-- Preconnect & Modern Google Fonts Pairing -->
+  <!-- Preconnect & Professional Fonts (Inter + JetBrains Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Favicon -->
   <link rel="shortcut icon" href="Images/creative-professional-initial-letter-d-p-code-logo-design-template-black-background_766194-2388.webp" type="image/x-icon">
@@ -17,51 +17,36 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-sound="enabled">
+<body>
 
-  <!-- Interactive Constellation / Cyber Canvas -->
-  <canvas id="bg-canvas"></canvas>
-
-  <!-- Sound Toggle & Floating Command Palette Launcher -->
-  <aside class="floating-controls" aria-label="Quick Controls">
-    <button class="ctrl-btn" id="btn-cmd-palette" title="Open Command Palette (⌘K / Ctrl+K)">
-      <kbd>⌘K</kbd>
-    </button>
-    <button class="ctrl-btn" id="btn-sound-toggle" title="Toggle Sci-Fi Sound FX">
-      <span id="sound-icon">🔊</span>
-    </button>
-  </aside>
-
-  <!-- Sticky Glass Navigation -->
+  <!-- Clean Top Navigation Bar -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="#hero" class="nav-brand">
-        <div class="logo-symbol">
-          <span class="logo-inner">V</span>
-        </div>
-        <div class="logo-text">
-          Varun<span class="dot-accent">.G</span>
-          <span class="dev-role-badge">FULL-STACK</span>
+        <div class="brand-avatar">VG</div>
+        <div class="brand-info">
+          <span class="brand-name">Varun G</span>
+          <span class="brand-role">Software Developer</span>
         </div>
       </a>
 
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="#about" class="nav-link"><span>//</span> About</a></li>
-        <li><a href="#skills" class="nav-link"><span>//</span> Skills</a></li>
-        <li><a href="#projects" class="nav-link"><span>//</span> Projects</a></li>
-        <li><a href="#education" class="nav-link"><span>//</span> Milestones</a></li>
-        <li><a href="#contact" class="nav-link"><span>//</span> Contact</a></li>
-      </ul>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#education" class="nav-link">Education & Certs</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
 
       <div class="nav-actions">
-        <button class="btn-recruiter-mode" id="btn-recruiter-mode" title="Toggle 30-Second Fast-Track View for Recruiters">
-          ⚡ <span>Recruiter View</span>
-        </button>
-        <button class="btn-nav-action" id="btn-open-manager-nav" title="Manage or Add Projects">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <button class="btn-manage-trigger" id="btn-open-manager-nav" title="Add or edit portfolio projects">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
           <span>Manage Projects</span>
         </button>
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <a href="mailto:varunyt.sai@outlook.com?subject=Internship%20Inquiry%20for%20Varun%20G" class="btn-primary-nav">
+          Get in Touch
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
           ☰
         </button>
       </div>
@@ -69,219 +54,139 @@
   </header>
 
   <main>
-    <!-- 1. Hero Section -->
+    <!-- 1. Professional Hero Section -->
     <section class="hero" id="hero">
-      <div class="container hero-grid">
-        <div class="hero-info">
-          
-          <div class="hero-badge-row">
-            <div class="status-pill">
-              <span class="status-dot"></span>
-              <span id="hero-status-text">Available for Developer Internships</span>
-            </div>
-            <div class="location-pill">
-              <span class="pulse-icon">📍</span> Tiruppur, Tamil Nadu
-            </div>
-          </div>
-          
-          <h1 class="hero-title">
-            Architecting <span class="text-gradient">Intelligent</span> Web Applications & Systems
-          </h1>
-          
-          <p class="hero-subtitle">
-            I'm <strong>Varun G</strong>, an aspirant Full-Stack & Java Developer passionate about building high-performance web software with <strong>React.js, Node.js, Java</strong>, and modern <strong>AI workflows</strong>.
-          </p>
-          
-          <div class="hero-cta-group">
-            <a href="#projects" class="btn-primary glow-effect">
-              <span>Explore My Work</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
-            <button class="btn-secondary" id="btn-view-resume">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-              <span>View Resume</span>
-            </button>
-            <button class="btn-terminal-trigger" id="btn-open-terminal" title="Launch Interactive Developer CLI">
-              <code>&gt;_ CLI Mode</code>
-            </button>
-          </div>
+      <div class="container hero-container">
+        
+        <div class="hero-status-pill">
+          <span class="status-indicator"></span>
+          <span>Available for Developer Internships & Entry-Level Roles</span>
+        </div>
 
-          <!-- Hero Dynamic Stats Grid -->
-          <div class="hero-stats-row">
-            <div class="hero-stat-card">
-              <div class="stat-value" data-target="5">5+</div>
-              <div class="stat-label">Core Projects</div>
-            </div>
-            <div class="hero-stat-card">
-              <div class="stat-value" data-target="3">3</div>
-              <div class="stat-label">Certifications</div>
-            </div>
-            <div class="hero-stat-card">
-              <div class="stat-value">75.4%</div>
-              <div class="stat-label">B.Tech IT</div>
-            </div>
-            <div class="hero-stat-card">
-              <div class="stat-value">100%</div>
-              <div class="stat-label">Commitment</div>
-            </div>
+        <h1 class="hero-title">
+          Engineering reliable web applications with <span class="highlight-text">Java</span>, <span class="highlight-text">React</span> & modern architectures.
+        </h1>
+
+        <p class="hero-subtitle">
+          I'm <strong>Varun G</strong>, an aspirant Full-Stack and Java Developer based in <strong>Tiruppur, Tamil Nadu</strong>. I specialize in building responsive frontend interfaces, RESTful backend APIs, and integrating practical AI features to solve real-world problems.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="#projects" class="btn-primary">
+            View Projects
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <button class="btn-secondary" id="btn-view-resume">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            Resume Overview
+          </button>
+          <a href="#contact" class="btn-ghost">
+            Contact Directly
+          </a>
+        </div>
+
+        <!-- Quick Facts Strip -->
+        <div class="hero-facts-grid">
+          <div class="fact-card">
+            <span class="fact-title">Academic Degree</span>
+            <span class="fact-value">B.Tech – IT (2023–2027)</span>
+            <span class="fact-sub">75.4% • VSB College of Engg</span>
+          </div>
+          <div class="fact-card">
+            <span class="fact-title">Core Stack</span>
+            <span class="fact-value">Java • React • Node.js</span>
+            <span class="fact-sub">SQL & MongoDB (NoSQL)</span>
+          </div>
+          <div class="fact-card">
+            <span class="fact-title">Location & Availability</span>
+            <span class="fact-value">Tiruppur, Tamil Nadu</span>
+            <span class="fact-sub">Open to Remote / Relocation</span>
+          </div>
+          <div class="fact-card">
+            <span class="fact-title">Direct Contact</span>
+            <span class="fact-value copyable-text" data-copy="varunyt.sai@outlook.com" title="Click to copy email">varunyt.sai@outlook.com</span>
+            <span class="fact-sub copyable-text" data-copy="+918825677192" title="Click to copy phone">+91 8825677192</span>
           </div>
         </div>
 
-        <!-- Interactive Holographic Code Hologram -->
-        <div class="hero-visual">
-          <div class="holo-card-container tilt-card" id="hero-holo-card">
-            <div class="holo-glare"></div>
-            <div class="terminal-card">
-              <div class="terminal-header">
-                <div class="terminal-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                </div>
-                <div class="terminal-title">varun-spec.ts</div>
-                <div class="terminal-badge">LIVE REPL</div>
-              </div>
-              <div class="terminal-code">
-                <p><span class="code-keyword">interface</span> <span class="code-variable">DeveloperProfile</span> {</p>
-                <p style="padding-left: 16px;"><span class="code-prop">name</span>: <span class="code-string">'Varun G'</span>;</p>
-                <p style="padding-left: 16px;"><span class="code-prop">role</span>: <span class="code-string">'Full-Stack & Java Engineer'</span>;</p>
-                <p style="padding-left: 16px;"><span class="code-prop">coreStack</span>: [<span class="code-string">'Java'</span>, <span class="code-string">'React'</span>, <span class="code-string">'Node'</span>, <span class="code-string">'MongoDB'</span>];</p>
-                <p style="padding-left: 16px;"><span class="code-prop">aiAssisted</span>: <span class="code-bool">true</span>; <span class="code-comment">// Antigravity, Claude</span></p>
-                <p style="padding-left: 16px;"><span class="code-prop">seeking</span>: <span class="code-string">'Summer/Fall 2025 Internship'</span>;</p>
-                <p>};</p>
-                <p class="code-comment" style="margin-top: 6px;">// Click below to copy direct contact lines:</p>
-              </div>
-
-              <div class="terminal-quick-actions">
-                <button class="copy-pill-btn" data-copy="varunyt.sai@outlook.com" title="Click to copy email">
-                  <span>📧 varunyt.sai@outlook.com</span>
-                  <span class="copy-tag">COPY</span>
-                </button>
-                <button class="copy-pill-btn" data-copy="+918825677192" title="Click to copy phone number">
-                  <span>📱 +91 8825677192</span>
-                  <span class="copy-tag">COPY</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Recruiter Fast-Track Drawer (Hidden by default, toggleable via Recruiter View button) -->
-    <section class="recruiter-drawer" id="recruiter-drawer" style="display: none;">
-      <div class="container">
-        <div class="recruiter-box">
-          <div class="recruiter-header">
-            <div>
-              <span class="section-tag" style="color: var(--accent-emerald);">⚡ 30-SECOND HIRING SNAPSHOT</span>
-              <h3 style="font-size: 1.4rem; font-weight: 800;">Why Hire Varun G for your Engineering Team?</h3>
-            </div>
-            <button class="recruiter-close-btn" id="btn-close-recruiter">&times;</button>
-          </div>
-          <div class="recruiter-grid">
-            <div class="recruiter-point">
-              <div class="recruiter-icon">🚀</div>
-              <h4>Full-Stack Capabilities</h4>
-              <p>Hands-on building end-to-end applications with React 19, Node.js, Express, MongoDB, and robust Java backend architecture.</p>
-            </div>
-            <div class="recruiter-point">
-              <div class="recruiter-icon">🧠</div>
-              <h4>Modern AI Integration</h4>
-              <p>Experience integrating Gemini AI, OCR vision scanning for finance, and autonomous agentic workflows.</p>
-            </div>
-            <div class="recruiter-point">
-              <div class="recruiter-icon">🎓</div>
-              <h4>Proven Track Record</h4>
-              <p>B.Tech IT student (75.4%) with 100% SSLC distinction, certified by GUVI and CORIZO in Full-Stack development.</p>
-            </div>
-          </div>
-          <div class="recruiter-footer">
-            <a href="mailto:varunyt.sai@outlook.com?subject=Internship%20Interview%20Invitation%20for%20Varun%20G" class="btn-primary">
-              Schedule an Interview ↗
-            </a>
-            <button class="btn-secondary" id="btn-recruiter-resume">Download Resume Summary</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. About & Career Objective Section -->
+    <!-- 2. About & Engineering Profile Section -->
     <section class="section" id="about">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">// 01. Origin & Ambition</span>
-          <h2 class="section-title">About & Engineering Mindset</h2>
-          <p class="section-desc">My foundational values, collaborative philosophy, and technical ambitions.</p>
+        <div class="section-heading">
+          <span class="section-eyebrow">Profile</span>
+          <h2 class="section-title">About Me</h2>
+          <p class="section-desc">Background, career objectives, and engineering approach.</p>
         </div>
 
-        <div class="about-grid">
-          <div class="about-card tilt-card">
-            <div class="card-glow-layer"></div>
+        <div class="about-card-grid">
+          <div class="about-main-card">
             <h3>Career Objective</h3>
             <p>
               Motivated and detail-oriented entry-level web developer with hands-on experience in building responsive web applications using <strong>HTML, CSS, JavaScript, React.js, and Java</strong>.
             </p>
             <p>
-              Eager to contribute to innovative real-world projects while continuously growing technical skills in a collaborative environment. Seeking a <strong>developer internship</strong> where I can apply my knowledge, solve meaningful problems, and make a positive impact.
+              Eager to contribute to innovative real-world projects while continuously growing technical skills in a collaborative environment. Seeking a <strong>developer internship</strong> where I can apply my knowledge, solve meaningful problems, and make a measurable impact.
             </p>
-            
-            <div class="interests-container" style="margin-top: 24px;">
-              <div class="persona-label">Specialized Focus Areas</div>
-              <div class="interests-tags" id="interests-container">
-                <span class="interest-tag">Web Development</span>
-                <span class="interest-tag">Frontend Design</span>
-                <span class="interest-tag">Backend Systems</span>
-                <span class="interest-tag">Database Management</span>
-              </div>
+
+            <h4 style="margin-top: 24px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary);">Core Areas of Interest</h4>
+            <div class="tags-container" style="margin-top: 10px;">
+              <span class="tech-tag">Web Development</span>
+              <span class="tech-tag">Frontend Architecture</span>
+              <span class="tech-tag">Backend Systems</span>
+              <span class="tech-tag">Database Management</span>
             </div>
           </div>
 
-          <div class="about-card tilt-card">
-            <div class="card-glow-layer"></div>
-            <h3>Persona & Quick Metrics</h3>
-            <div class="persona-matrix">
-              <div class="persona-item">
-                <div class="persona-label">Location</div>
-                <div class="persona-value">Tiruppur, Tamil Nadu</div>
+          <div class="about-side-card">
+            <h3>Summary Details</h3>
+            <div class="detail-rows">
+              <div class="detail-row">
+                <span class="detail-label">Full Name</span>
+                <span class="detail-val">Varun G</span>
               </div>
-              <div class="persona-item">
-                <div class="persona-label">Education</div>
-                <div class="persona-value">B.Tech IT (2023–2027)</div>
+              <div class="detail-row">
+                <span class="detail-label">Current Role</span>
+                <span class="detail-val">Aspirant Software Developer</span>
               </div>
-              <div class="persona-item">
-                <div class="persona-label">Languages</div>
-                <div class="persona-value">Tamil, English, Telugu</div>
+              <div class="detail-row">
+                <span class="detail-label">Location</span>
+                <span class="detail-val">Tiruppur, Tamil Nadu, India</span>
               </div>
-              <div class="persona-item">
-                <div class="persona-label">Availability</div>
-                <div class="persona-value" style="color: var(--accent-emerald);">Internships & Roles</div>
+              <div class="detail-row">
+                <span class="detail-label">Education</span>
+                <span class="detail-val">B.Tech IT (2023 – 2027)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Spoken Languages</span>
+                <span class="detail-val">English, Tamil, Telugu</span>
               </div>
             </div>
 
-            <div style="margin-top: 24px;">
-              <div class="persona-label" style="margin-bottom: 8px;">Direct Profiles</div>
-              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                <a href="https://github.com/varun-program" target="_blank" class="btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">
-                  GitHub Profile ↗
-                </a>
-                <a href="https://www.linkedin.com/in/varun-g-54a683284" target="_blank" class="btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">
-                  LinkedIn Profile ↗
-                </a>
-              </div>
+            <div class="profile-links-row">
+              <a href="https://github.com/varun-program" target="_blank" rel="noopener noreferrer" class="link-pill">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub ↗
+              </a>
+              <a href="https://www.linkedin.com/in/varun-g-54a683284" target="_blank" rel="noopener noreferrer" class="link-pill">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn ↗
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. Technical Skills Matrix -->
+    <!-- 3. Technical Skills Matrix Section -->
     <section class="section" id="skills">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">// 02. Technical Arsenal</span>
-          <h2 class="section-title">Skills & Capabilities</h2>
-          <p class="section-desc">Interactive overview of programming languages, frontend systems, backend architectures, and AI tools.</p>
+        <div class="section-heading">
+          <span class="section-eyebrow">Competencies</span>
+          <h2 class="section-title">Technical Skills</h2>
+          <p class="section-desc">Languages, libraries, frameworks, database systems, and developer tools.</p>
         </div>
 
         <div class="skills-grid" id="skills-container">
@@ -290,160 +195,153 @@
       </div>
     </section>
 
-    <!-- 4. Projects Showcase (Dynamic Engine + Manager) -->
+    <!-- 4. Featured Projects Showcase Section -->
     <section class="section" id="projects">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">// 03. Engineered Projects</span>
-          <h2 class="section-title">Featured Works & Case Studies</h2>
-          <p class="section-desc">Production-ready applications built with modern architectures and clean design principles.</p>
+        <div class="section-heading">
+          <span class="section-eyebrow">Portfolio</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-desc">End-to-end full stack web applications, AI-integrated tools, and frontend systems.</p>
         </div>
 
-        <!-- Dynamic Controls: Filter, Search, & Project Management -->
-        <div class="projects-controls">
-          <div class="controls-top-row">
-            <div class="filter-tabs" id="filter-tabs">
-              <button class="filter-btn active" data-filter="all">All Projects</button>
-              <button class="filter-btn" data-filter="ai">AI & Smart Apps</button>
-              <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
-              <button class="filter-btn" data-filter="react">React.js</button>
-              <button class="filter-btn" data-filter="javascript">JavaScript</button>
-            </div>
-
-            <div class="project-actions-group">
-              <button class="btn-manage-projects" id="btn-open-manager">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                <span>⚡ Add / Manage Projects</span>
-              </button>
-              <button class="btn-sync-github" id="btn-sync-github" title="Pull latest public repos from GitHub">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                <span>Sync GitHub</span>
-              </button>
-            </div>
+        <!-- Filter & Management Controls -->
+        <div class="projects-bar">
+          <div class="filter-tabs" id="filter-tabs">
+            <button class="filter-pill active" data-filter="all">All</button>
+            <button class="filter-pill" data-filter="ai">AI / React</button>
+            <button class="filter-pill" data-filter="fullstack">Full-Stack</button>
+            <button class="filter-pill" data-filter="react">React.js</button>
+            <button class="filter-pill" data-filter="javascript">JavaScript</button>
           </div>
 
-          <div class="search-input-wrapper">
-            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" class="search-input" id="project-search" placeholder="Search by technology, stack, or feature (e.g. React, OCR, Finance, Node)..." />
+          <div class="projects-actions-right">
+            <button class="btn-clean-action" id="btn-open-manager">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Manage Projects</span>
+            </button>
+            <button class="btn-clean-ghost" id="btn-sync-github" title="Fetch latest public repositories from GitHub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              <span>Sync GitHub</span>
+            </button>
           </div>
         </div>
 
-        <!-- Dynamic Projects Grid with 3D Tilt & Glassmorphism -->
+        <!-- Search Input -->
+        <div class="search-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" class="search-field" id="project-search" placeholder="Search projects by technology, keyword, or features..." />
+        </div>
+
+        <!-- Dynamic Projects Grid -->
         <div class="projects-grid" id="projects-grid">
           <!-- Dynamically populated from script.js -->
         </div>
       </div>
     </section>
 
-    <!-- 5. Education & Certifications Timeline -->
+    <!-- 5. Education & Certifications Section -->
     <section class="section" id="education">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">// 04. Learning Trajectory</span>
+        <div class="section-heading">
+          <span class="section-eyebrow">Qualifications</span>
           <h2 class="section-title">Education & Certifications</h2>
-          <p class="section-desc">Academic excellence, professional accreditation, and verified skill achievements.</p>
+          <p class="section-desc">Academic background, technical training, and certified credentials.</p>
         </div>
 
         <div class="edu-cert-tabs">
-          <button class="tab-btn active" data-tab="edu-pane">🎓 Academic Timeline</button>
-          <button class="tab-btn" data-tab="cert-pane">📜 Verified Certifications</button>
+          <button class="tab-btn active" data-tab="edu-pane">Academic Education</button>
+          <button class="tab-btn" data-tab="cert-pane">Professional Certifications</button>
         </div>
 
-        <!-- Academic Education Timeline -->
+        <!-- Academic Timeline -->
         <div class="tab-content-pane active" id="edu-pane">
-          <div class="timeline" id="education-timeline">
+          <div class="edu-list" id="education-timeline">
             <!-- Dynamically populated -->
           </div>
         </div>
 
-        <!-- Certifications Pane -->
+        <!-- Certifications List -->
         <div class="tab-content-pane" id="cert-pane">
-          <div class="certs-grid" id="certs-container">
+          <div class="cert-grid" id="certs-container">
             <!-- Dynamically populated -->
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6. Contact & Connect Section -->
+    <!-- 6. Contact & Direct Connection Section -->
     <section class="section" id="contact">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">// 05. Let's Connect</span>
-          <h2 class="section-title">Start a Conversation</h2>
-          <p class="section-desc">Interested in discussing an internship, project collaboration, or full-stack opportunity?</p>
+        <div class="section-heading">
+          <span class="section-eyebrow">Get in Touch</span>
+          <h2 class="section-title">Contact Information</h2>
+          <p class="section-desc">Feel free to reach out directly regarding internships, job opportunities, or collaborations.</p>
         </div>
 
-        <div class="contact-grid">
-          <div class="contact-info-card tilt-card">
-            <div>
-              <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">Contact Information</h3>
-              <p style="color: var(--text-secondary); margin-bottom: 24px;">
-                I am actively seeking internship opportunities. Reach out via email, phone, or LinkedIn and I will respond promptly.
-              </p>
+        <div class="contact-card-grid">
+          <div class="contact-info-panel">
+            <h3>Direct Channels</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 24px;">
+              I am actively looking for developer opportunities. You can reach out directly via email, phone, or LinkedIn.
+            </p>
 
-              <div class="contact-direct-list">
-                <div class="contact-direct-item">
-                  <div class="contact-item-left">
-                    <span class="contact-icon">📧</span>
-                    <span class="contact-item-text">varunyt.sai@outlook.com</span>
-                  </div>
-                  <button class="btn-nav-action copy-pill-btn" data-copy="varunyt.sai@outlook.com" style="padding: 4px 10px; font-size: 0.75rem;">
-                    Copy
-                  </button>
+            <div class="contact-methods">
+              <div class="contact-method-item">
+                <div class="method-left">
+                  <span class="method-label">Email Address</span>
+                  <span class="method-val">varunyt.sai@outlook.com</span>
                 </div>
+                <button class="copy-btn" data-copy="varunyt.sai@outlook.com" title="Copy email">Copy</button>
+              </div>
 
-                <div class="contact-direct-item">
-                  <div class="contact-item-left">
-                    <span class="contact-icon">📱</span>
-                    <span class="contact-item-text">+91 8825677192</span>
-                  </div>
-                  <button class="btn-nav-action copy-pill-btn" data-copy="+918825677192" style="padding: 4px 10px; font-size: 0.75rem;">
-                    Copy
-                  </button>
+              <div class="contact-method-item">
+                <div class="method-left">
+                  <span class="method-label">Phone Number</span>
+                  <span class="method-val">+91 8825677192</span>
                 </div>
+                <button class="copy-btn" data-copy="+918825677192" title="Copy phone number">Copy</button>
+              </div>
 
-                <div class="contact-direct-item">
-                  <div class="contact-item-left">
-                    <span class="contact-icon">📍</span>
-                    <span class="contact-item-text">Tiruppur, Tamil Nadu, India</span>
-                  </div>
-                  <span style="font-size: 0.8rem; color: var(--accent-emerald); font-weight: 700;">Open to Relocate / Remote</span>
+              <div class="contact-method-item">
+                <div class="method-left">
+                  <span class="method-label">Location</span>
+                  <span class="method-val">Tiruppur, Tamil Nadu, India</span>
                 </div>
+                <span class="badge-status">Onsite / Remote</span>
               </div>
             </div>
 
-            <div style="display: flex; gap: 12px; margin-top: 24px;">
-              <a href="https://www.linkedin.com/in/varun-g-54a683284" target="_blank" class="btn-secondary" style="flex: 1; justify-content: center;">
-                LinkedIn ↗
+            <div class="social-links-row" style="margin-top: 24px;">
+              <a href="https://www.linkedin.com/in/varun-g-54a683284" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="flex: 1; text-align: center; justify-content: center;">
+                LinkedIn Profile ↗
               </a>
-              <a href="https://github.com/varun-program" target="_blank" class="btn-secondary" style="flex: 1; justify-content: center;">
-                GitHub ↗
+              <a href="https://github.com/varun-program" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="flex: 1; text-align: center; justify-content: center;">
+                GitHub Profile ↗
               </a>
             </div>
           </div>
 
-          <div class="contact-form-card tilt-card">
-            <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">Send Direct Inquiry</h3>
+          <div class="contact-form-panel">
+            <h3>Send a Message</h3>
             <form id="contact-form">
               <div class="form-group">
-                <label for="sender-name" class="form-label">Your Name</label>
-                <input type="text" id="sender-name" class="form-control" placeholder="e.g. Hiring Manager / Recruiter" required>
+                <label for="sender-name" class="form-label">Full Name</label>
+                <input type="text" id="sender-name" class="form-input" placeholder="e.g. Recruiter / Team Lead" required />
               </div>
 
               <div class="form-group">
-                <label for="sender-email" class="form-label">Your Email</label>
-                <input type="email" id="sender-email" class="form-control" placeholder="e.g. manager@company.com" required>
+                <label for="sender-email" class="form-label">Email Address</label>
+                <input type="email" id="sender-email" class="form-input" placeholder="e.g. name@company.com" required />
               </div>
 
               <div class="form-group">
-                <label for="sender-message" class="form-label">Message / Internship Proposal</label>
-                <textarea id="sender-message" class="form-control" placeholder="Hi Varun, We came across your portfolio and would like to invite you for an interview regarding..." required></textarea>
+                <label for="sender-message" class="form-label">Message / Inquiry</label>
+                <textarea id="sender-message" class="form-input form-textarea" placeholder="Hi Varun, We would like to connect with you regarding..." required></textarea>
               </div>
 
-              <button type="submit" class="btn-primary glow-effect" style="width: 100%; justify-content: center;">
-                <span>Send Message Directly</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                Send Direct Message
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               </button>
             </form>
           </div>
@@ -452,76 +350,28 @@
     </section>
   </main>
 
-  <!-- Live Developer Status Bar (Bottom) -->
-  <div class="developer-status-bar" id="status-bar">
-    <div class="status-bar-left">
-      <span class="status-indicator"></span>
-      <span>READY</span>
-      <span class="status-separator">|</span>
-      <span>BRANCH: <code>main</code></span>
-      <span class="status-separator">|</span>
-      <span>ENV: <code>Production</code></span>
-    </div>
-    <div class="status-bar-right">
-      <span id="local-time-clock">Tiruppur IST: --:--:--</span>
-      <span class="status-separator">|</span>
-      <span><kbd>⌘K</kbd> Command Palette</span>
-    </div>
-  </div>
-
-  <!-- Footer -->
+  <!-- Clean Professional Footer -->
   <footer class="footer">
-    <div class="container footer-content">
-      <div class="footer-text">
-        © <span id="current-year">2025</span> <strong>Varun G</strong> | Designed with High-Performance Cyber-Glass UI
+    <div class="container footer-container">
+      <div class="footer-left">
+        <span class="footer-brand">Varun G</span>
+        <span class="footer-muted">• Software Developer & Full-Stack Engineer</span>
       </div>
-      <div style="font-size: 0.8rem; color: var(--text-muted);">
-        Aspirant Full-Stack & Java Developer • Tiruppur, Tamil Nadu
+      <div class="footer-right">
+        <span>© <span id="current-year">2025</span> Varun G. All rights reserved.</span>
       </div>
     </div>
   </footer>
 
   <!-- =========================================================================
-       INTERACTIVE MODALS & COMMAND PALETTE (<dialog>)
+       MODALS (<dialog>)
        ========================================================================= -->
 
-  <!-- 1. Interactive Command Palette Modal (Cmd+K) -->
-  <dialog id="cmd-palette-modal" class="custom-modal cmd-palette">
-    <div class="cmd-input-container">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="text" id="cmd-search-input" placeholder="Type a command or jump to section (e.g. projects, resume, email, theme)..." autocomplete="off" />
-      <kbd>ESC</kbd>
-    </div>
-    <div class="cmd-results" id="cmd-results">
-      <!-- Injected dynamically -->
-    </div>
-  </dialog>
-
-  <!-- 2. Interactive Terminal CLI Modal -->
-  <dialog id="terminal-cli-modal" class="custom-modal terminal-cli-modal">
+  <!-- 1. Project Details Modal -->
+  <dialog id="project-detail-modal" class="modal-dialog">
     <div class="modal-header">
-      <div class="terminal-dots">
-        <span class="dot dot-red"></span>
-        <span class="dot dot-yellow"></span>
-        <span class="dot dot-green"></span>
-      </div>
-      <h3 class="modal-title" style="font-family: var(--font-mono); font-size: 0.95rem;">varun-shell — v2.5.0</h3>
-      <button class="modal-close-btn" data-close-modal="terminal-cli-modal">&times;</button>
-    </div>
-    <div class="terminal-cli-body" id="cli-output">
-      <p class="cli-welcome">Welcome to Varun G's Interactive Shell. Type <span class="cli-highlight">'help'</span> for available commands.</p>
-    </div>
-    <div class="terminal-cli-prompt">
-      <span class="cli-prefix">varun@portfolio:~$</span>
-      <input type="text" id="cli-input" class="cli-input" placeholder="Type command (e.g. skills, projects, hire, clear)..." autofocus autocomplete="off" />
-    </div>
-  </dialog>
-
-  <!-- 3. Project Details Modal -->
-  <dialog id="project-detail-modal" class="custom-modal">
-    <div class="modal-header">
-      <h3 class="modal-title" id="modal-project-title">Project Details</h3>
-      <button class="modal-close-btn" data-close-modal="project-detail-modal">&times;</button>
+      <h3 class="modal-title" id="modal-project-title">Project Case Study</h3>
+      <button class="modal-close" data-close-modal="project-detail-modal">&times;</button>
     </div>
     <div class="modal-body" id="modal-project-body">
       <!-- Injected dynamically -->
@@ -531,29 +381,29 @@
     </div>
   </dialog>
 
-  <!-- 4. Project Manager & Quick Adder Modal -->
-  <dialog id="project-manager-modal" class="custom-modal" style="max-width: 760px;">
+  <!-- 2. Project Manager Modal -->
+  <dialog id="project-manager-modal" class="modal-dialog" style="max-width: 740px;">
     <div class="modal-header">
-      <h3 class="modal-title">⚡ Portfolio Project Manager</h3>
-      <button class="modal-close-btn" data-close-modal="project-manager-modal">&times;</button>
+      <h3 class="modal-title">Portfolio Project Manager</h3>
+      <button class="modal-close" data-close-modal="project-manager-modal">&times;</button>
     </div>
     <div class="modal-body">
-      <div class="manager-help-note">
-        <strong>💡 Dynamic Project Engine:</strong> Add any new project below. It updates live immediately on your portfolio without touching any HTML/CSS. Click <strong>"📋 Copy Config Code"</strong> to easily save your updates to <code>data/portfolio-data.js</code>.
+      <div class="manager-note">
+        <strong>Dynamic Project Management:</strong> Add a new project below to see it immediately on your portfolio. Use <strong>"Copy Config Code"</strong> to easily save your updates permanently to <code>data/portfolio-data.js</code>.
       </div>
 
-      <form id="add-project-form" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
-        <h4 style="color: var(--primary); font-size: 1.1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">Add New Project</h4>
+      <form id="add-project-form" class="manager-form">
+        <h4 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 12px;">Add New Project</h4>
         
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
           <div>
             <label class="form-label">Project Title *</label>
-            <input type="text" id="mgr-title" class="form-control" placeholder="e.g. AI Financial Copilot" required />
+            <input type="text" id="mgr-title" class="form-input" placeholder="e.g. AI Invoice Parser" required />
           </div>
           <div>
             <label class="form-label">Category *</label>
-            <select id="mgr-category" class="form-control" required style="background: #0d1326;">
-              <option value="ai">AI / Smart App</option>
+            <select id="mgr-category" class="form-input" required>
+              <option value="ai">AI / React</option>
               <option value="react">React.js</option>
               <option value="fullstack">Full-Stack</option>
               <option value="javascript">JavaScript</option>
@@ -562,124 +412,120 @@
         </div>
 
         <div>
-          <label class="form-label">Subtitle / Catchphrase *</label>
-          <input type="text" id="mgr-subtitle" class="form-control" placeholder="e.g. Real-time OCR-powered transaction categorization engine" required />
+          <label class="form-label">Subtitle / Key Tagline *</label>
+          <input type="text" id="mgr-subtitle" class="form-input" placeholder="e.g. Full-Stack Web Application with OCR and Analytics" required />
         </div>
 
         <div>
           <label class="form-label">Short Description *</label>
-          <textarea id="mgr-desc" class="form-control" style="min-height: 80px;" placeholder="Brief explanation of the project's purpose and impact..." required></textarea>
+          <textarea id="mgr-desc" class="form-input" style="min-height: 80px;" placeholder="Summary of what the project does and its engineering highlights..." required></textarea>
         </div>
 
         <div>
-          <label class="form-label">Key Highlights / Features (1 per line)</label>
-          <textarea id="mgr-highlights" class="form-control" style="min-height: 80px;" placeholder="• Built responsive UI with React hooks&#10;• Integrated OCR receipt parsing&#10;• Deployed on cloud"></textarea>
+          <label class="form-label">Technical Highlights (1 per line)</label>
+          <textarea id="mgr-highlights" class="form-input" style="min-height: 80px;" placeholder="• Built responsive UI with React hooks&#10;• Integrated REST APIs for live data&#10;• Implemented secure authentication"></textarea>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
           <div>
             <label class="form-label">Technologies (comma-separated)</label>
-            <input type="text" id="mgr-tech" class="form-control" placeholder="React, Node.js, Express, MongoDB" />
+            <input type="text" id="mgr-tech" class="form-input" placeholder="React, Node.js, Express, MongoDB" />
           </div>
           <div>
             <label class="form-label">Badge Label</label>
-            <input type="text" id="mgr-badge" class="form-control" placeholder="e.g. Featured / Web App" />
+            <input type="text" id="mgr-badge" class="form-input" placeholder="e.g. Featured / Web App" />
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
           <div>
-            <label class="form-label">Live Demo URL (optional)</label>
-            <input type="url" id="mgr-live" class="form-control" placeholder="https://..." />
+            <label class="form-label">Live Demo URL</label>
+            <input type="url" id="mgr-live" class="form-input" placeholder="https://..." />
           </div>
           <div>
-            <label class="form-label">GitHub URL (optional)</label>
-            <input type="url" id="mgr-github" class="form-control" placeholder="https://github.com/varun-program/..." />
+            <label class="form-label">GitHub URL</label>
+            <input type="url" id="mgr-github" class="form-input" placeholder="https://github.com/varun-program/..." />
           </div>
         </div>
 
-        <div style="display: flex; gap: 10px; margin-top: 8px;">
-          <button type="submit" class="btn-primary glow-effect" style="flex: 1; justify-content: center;">
-            ➕ Add to Portfolio (Live Preview)
-          </button>
-        </div>
+        <button type="submit" class="btn-primary" style="margin-top: 8px; justify-content: center;">
+          Add Project to Portfolio
+        </button>
       </form>
 
-      <h4 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 12px;">Current Active Projects</h4>
-      <div class="manager-projects-list" id="mgr-projects-list">
+      <h4 style="color: var(--text-primary); font-size: 1rem; margin: 24px 0 12px 0;">Current Active Projects</h4>
+      <div class="manager-list" id="mgr-projects-list">
         <!-- Rendered dynamically -->
       </div>
     </div>
 
     <div class="modal-footer" style="justify-content: space-between;">
-      <button class="btn-secondary" id="mgr-reset-btn" style="color: #ef4444;">
+      <button class="btn-ghost" id="mgr-reset-btn" style="color: #ef4444;">
         Reset to Defaults
       </button>
       <div style="display: flex; gap: 10px;">
-        <button class="btn-primary glow-effect" id="mgr-export-btn" title="Copy updated code for data/portfolio-data.js">
-          📋 Copy Config Code
+        <button class="btn-primary" id="mgr-export-btn">
+          Copy Config Code
         </button>
         <button class="btn-secondary" data-close-modal="project-manager-modal">Close</button>
       </div>
     </div>
   </dialog>
 
-  <!-- 5. Resume Viewer Modal -->
-  <dialog id="resume-modal" class="custom-modal" style="max-width: 780px;">
+  <!-- 3. Resume Overview Modal -->
+  <dialog id="resume-modal" class="modal-dialog" style="max-width: 760px;">
     <div class="modal-header">
-      <h3 class="modal-title">📄 Varun G — Verified Resume</h3>
-      <button class="modal-close-btn" data-close-modal="resume-modal">&times;</button>
+      <h3 class="modal-title">Verified Resume Overview — Varun G</h3>
+      <button class="modal-close" data-close-modal="resume-modal">&times;</button>
     </div>
     <div class="modal-body">
-      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; margin-bottom: 20px;">
+      <div class="resume-header">
         <div>
-          <h2 style="font-size: 1.6rem; font-weight: 900;">VARUN G</h2>
-          <p style="color: var(--primary); font-weight: 700; font-size: 1rem;">Aspirant Full-Stack & Java Developer</p>
-          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">📍 Tiruppur, Tamil Nadu • ✉️ varunyt.sai@outlook.com • 📞 +91 8825677192</p>
+          <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary);">VARUN G</h2>
+          <p style="color: var(--primary); font-weight: 600; font-size: 0.95rem;">Aspirant Software Developer & Full-Stack Engineer</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Tiruppur, Tamil Nadu • varunyt.sai@outlook.com • +91 8825677192</p>
         </div>
         <div>
-          <a href="mailto:varunyt.sai@outlook.com?subject=Internship%20Offer%20for%20Varun%20G" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">
+          <a href="mailto:varunyt.sai@outlook.com?subject=Job%20Opportunity%20for%20Varun%20G" class="btn-primary" style="font-size: 0.85rem; padding: 8px 16px;">
             Hire Varun
           </a>
         </div>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 20px;">
-        <div>
-          <h4 style="color: var(--primary); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Career Objective</h4>
-          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
-            Motivated and detail-oriented entry-level web developer with hands-on experience in building responsive web applications using HTML, CSS, JavaScript, and Java. Eager to contribute to innovative real-world projects while continuously growing technical skills in a collaborative environment. Seeking a developer internship where I can apply my knowledge, solve meaningful problems, and make a positive impact.
-          </p>
-        </div>
+      <div class="resume-section">
+        <h4>Career Objective</h4>
+        <p>
+          Motivated and detail-oriented entry-level web developer with hands-on experience in building responsive web applications using HTML, CSS, JavaScript, and Java. Eager to contribute to innovative real-world projects while continuously growing technical skills in a collaborative environment. Seeking a developer internship where I can apply my knowledge, solve meaningful problems, and make a positive impact.
+        </p>
+      </div>
 
-        <div>
-          <h4 style="color: var(--primary); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Core Projects</h4>
-          <ul style="color: var(--text-secondary); font-size: 0.9rem; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
-            <li><strong>SmartExpense AI (React.js):</strong> AI-powered expense tracking system with automated categorization, OCR receipt scanning, and analytics dashboards.</li>
-            <li><strong>Upgrade Finance:</strong> Modern, privacy-first, offline-first personal finance platform with encrypted storage and CSV analytics.</li>
-            <li><strong>Event Registration Portal (React.js):</strong> Responsive registration portal with real-time validation, attendee management admin panel, and CSV export.</li>
-            <li><strong>Weather Application (JavaScript):</strong> Live weather forecasting integration with dynamic condition themes and error handling.</li>
-          </ul>
-        </div>
+      <div class="resume-section">
+        <h4>Key Projects</h4>
+        <ul class="resume-list">
+          <li><strong>SmartExpense AI (React.js, Node.js):</strong> Engineered an AI-powered expense tracking system with automated categorization, intelligent OCR receipt scanning, and real-time visualization dashboards.</li>
+          <li><strong>Upgrade Finance:</strong> Modern, privacy-first, offline-first personal finance platform with encrypted local storage and CSV export.</li>
+          <li><strong>Event Registration Portal (React.js):</strong> Built responsive registration system with real-time validation, admin panel, and CSV export functionality.</li>
+          <li><strong>Weather Application (JavaScript):</strong> Integrated public weather API to fetch and render real-time forecast data with condition-based UI themes.</li>
+        </ul>
+      </div>
 
-        <div>
-          <h4 style="color: var(--primary); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Education</h4>
-          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-            • <strong>B.Tech – Information Technology (2023 – 2027)</strong> | VSB College of Engineering Technical Campus — <strong>75.4%</strong><br>
-            • <strong>Diploma – Computer Science & Engineering (2021 – 2023)</strong> | Konghu Vellalar Polytechnic College — <strong>73%</strong><br>
-            • <strong>SSLC (2020 – 2021)</strong> | Bharathi Matric Higher Secondary School — <strong>100% Centum Distinction</strong>
-          </p>
-        </div>
+      <div class="resume-section">
+        <h4>Education</h4>
+        <p>
+          • <strong>B.Tech – Information Technology (2023 – 2027)</strong> | VSB College of Engineering Technical Campus, Coimbatore — <strong>75.4%</strong><br>
+          • <strong>Diploma – Computer Science & Engineering (2021 – 2023)</strong> | Konghu Vellalar Polytechnic College — <strong>73%</strong><br>
+          • <strong>SSLC (2020 – 2021)</strong> | Bharathi Matric Higher Secondary School — <strong>100%</strong>
+        </p>
+      </div>
 
-        <div>
-          <h4 style="color: var(--primary); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Technical Stack & Certifications</h4>
-          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-            <strong>Languages:</strong> Java, JavaScript (ES6+)<br>
-            <strong>Frontend:</strong> React.js, HTML5, CSS3, Modern UI/UX<br>
-            <strong>Backend & DB:</strong> Node.js, Express, SQL, MongoDB<br>
-            <strong>Certifications:</strong> Full Stack Web Development (CORIZO), JavaScript (GUVI), HTML & CSS (GUVI)
-          </p>
-        </div>
+      <div class="resume-section">
+        <h4>Technical Stack & Certifications</h4>
+        <p>
+          <strong>Languages:</strong> Java, JavaScript (ES6+)<br>
+          <strong>Frontend:</strong> React.js, HTML5, CSS3, Modern UI/UX<br>
+          <strong>Backend & Databases:</strong> Node.js, Express, SQL, NoSQL / MongoDB<br>
+          <strong>Certifications:</strong> Full Stack Web Development (CORIZO), JavaScript (GUVI), HTML & CSS (GUVI)
+        </p>
       </div>
     </div>
     <div class="modal-footer">
@@ -690,7 +536,7 @@
     </div>
   </dialog>
 
-  <!-- Toast Container -->
+  <!-- Toast Notification Container -->
   <div id="toast-container" aria-live="polite"></div>
 
   <!-- Scripts -->
