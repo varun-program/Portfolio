@@ -5,7 +5,7 @@
 
 :root {
   --bg-main: #0a0a0f;
-  --bg-card: #13131a;
+  --bg-card: #121218;
   --bg-card-hover: #181822;
   --bg-input: #181822;
 
@@ -131,23 +131,6 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.btn-manage-nav {
-  background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-  font-size: 0.82rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btn-manage-nav:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-primary);
 }
 
 .btn-primary-nav {
@@ -460,7 +443,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Projects Section
+   Projects Section (Clean, Card-First, Image-Free)
    -------------------------------------------------------------------------- */
 .projects-bar {
   display: flex;
@@ -559,70 +542,67 @@ body {
   border-color: var(--primary);
 }
 
+/* Projects Grid (Clean Text/Code Cards) */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 22px;
+  gap: 20px;
 }
 
 .project-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  padding: 24px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   transition: var(--transition);
 }
 
 .project-card:hover {
   border-color: var(--border-hover);
   background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
-.project-img-wrapper {
-  position: relative;
-  height: 180px;
-  overflow: hidden;
-  background: #181822;
+.project-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-.project-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.project-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-badge-pill {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(10, 10, 15, 0.85);
-  border: 1px solid var(--border-color);
-  color: #fff;
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
 }
 
 .project-content {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.project-category-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--primary);
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
 .project-card-title {
-  font-size: 1.18rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 8px;
@@ -630,9 +610,9 @@ body {
 
 .project-card-desc {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   line-height: 1.6;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   flex-grow: 1;
 }
 
@@ -640,16 +620,16 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .tech-pill {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-family: var(--font-mono);
-  padding: 2px 6px;
+  padding: 3px 8px;
   border-radius: var(--radius-sm);
 }
 
@@ -663,11 +643,11 @@ body {
 
 .project-links {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .btn-card-link {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--primary);
   text-decoration: none;
@@ -676,12 +656,17 @@ body {
   text-decoration: underline;
 }
 
+.btn-card-github {
+  color: var(--accent-green);
+}
+
 .btn-card-details {
   background: transparent;
   border: none;
   color: var(--text-muted);
   font-size: 0.82rem;
   cursor: pointer;
+  transition: var(--transition);
 }
 .btn-card-details:hover {
   color: var(--text-primary);
@@ -918,6 +903,7 @@ body {
 
 .footer-links {
   display: flex;
+  align-items: center;
   gap: 16px;
 }
 
@@ -927,6 +913,20 @@ body {
 }
 .footer-links a:hover {
   color: var(--text-primary);
+}
+
+.footer-lock-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+  padding: 0 4px;
+}
+.footer-lock-btn:hover {
+  opacity: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -1107,19 +1107,4 @@ dialog.modal-dialog::backdrop {
     flex-direction: column;
     align-items: flex-start;
   }
-}
-
-/* Subtle Footer Lock Icon for Owner Access */
-.footer-lock-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 0.85rem;
-  opacity: 0.4;
-  transition: opacity 0.2s ease;
-  padding: 0 4px;
-}
-.footer-lock-btn:hover {
-  opacity: 1;
 }

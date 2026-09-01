@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initOwnerSecurity() {
-    // Check URL parameters (e.g. ?admin=true)
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('admin') || urlParams.has('edit')) {
       promptOwnerAuth();
@@ -194,12 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 5. Projects Showcase Engine
+  // 5. Projects Showcase Engine (Clean, Text-First, Image-Free)
   // ------------------------------------------------------------------------
   function initProjects() {
     renderProjectGrid();
 
-    // Filter Buttons
     const filterTabs = document.getElementById('filter-tabs');
     if (filterTabs) {
       filterTabs.addEventListener('click', (e) => {
@@ -213,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Search Input
     const searchInput = document.getElementById('project-search');
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
@@ -251,32 +248,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     grid.innerHTML = filtered.map(proj => {
-      const imgSrc = proj.image || 'Images/Project-2.png';
-      const badgeHTML = proj.badge ? `<span class="project-badge-pill">${escapeHTML(proj.badge)}</span>` : '';
       const categoryLabel = proj.categoryLabel || proj.category.toUpperCase();
+      const badgeText = proj.badge || categoryLabel;
 
       return `
         <article class="project-card" data-project-id="${escapeHTML(proj.id)}">
-          <div class="project-img-wrapper">
-            <img src="${escapeHTML(imgSrc)}" alt="${escapeHTML(proj.title)}" class="project-img" onerror="this.src='Images/Project-2.png'" loading="lazy" />
-            ${badgeHTML}
+          <div class="project-card-top">
+            <div class="project-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <span class="project-badge-pill">${escapeHTML(badgeText)}</span>
           </div>
+
           <div class="project-content">
-            <div class="project-category-tag">${escapeHTML(categoryLabel)}</div>
             <h3 class="project-card-title">${escapeHTML(proj.title)}</h3>
             <p class="project-card-desc">${escapeHTML(proj.shortDescription || proj.subtitle || '')}</p>
             
             <div class="project-tech-pills">
-              ${(proj.technologies || []).slice(0, 4).map(tech => `
+              ${(proj.technologies || []).map(tech => `
                 <span class="tech-pill">${escapeHTML(tech)}</span>
               `).join('')}
-              ${(proj.technologies || []).length > 4 ? `<span class="tech-pill">+${proj.technologies.length - 4}</span>` : ''}
             </div>
 
             <div class="project-card-footer">
               <div class="project-links">
                 ${proj.liveUrl ? `<a href="${escapeHTML(proj.liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-link">Live Demo ↗</a>` : ''}
-                ${proj.githubUrl ? `<a href="${escapeHTML(proj.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-link" style="color: var(--accent-green);">GitHub ↗</a>` : ''}
+                ${proj.githubUrl ? `<a href="${escapeHTML(proj.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-link btn-card-github">GitHub ↗</a>` : ''}
               </div>
               <button class="btn-card-details" data-open-project="${escapeHTML(proj.id)}">
                 Details
@@ -449,7 +446,6 @@ document.addEventListener('DOMContentLoaded', () => {
           category,
           categoryLabel: category.toUpperCase(),
           featured: true,
-          image: 'Images/Project-3.png',
           badge: badge || 'Project',
           shortDescription: desc,
           highlights,
@@ -566,7 +562,6 @@ document.addEventListener('DOMContentLoaded', () => {
               category: cat,
               categoryLabel: lang,
               featured: false,
-              image: 'Images/Project-2.png',
               badge: `⭐ ${repo.stargazers_count || 0}`,
               shortDescription: repo.description || 'Open-source software repository on GitHub.',
               highlights: [
