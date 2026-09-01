@@ -1,83 +1,595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Varun | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap">
-    <link rel="shortcut icon" href="Images/creative-professional-initial-letter-d-p-code-logo-design-template-black-background_766194-2388.webp" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Varun G | Aspirant Developer & Full-Stack Engineer</title>
+  <meta name="description" content="Portfolio of Varun G, an entry-level Full-Stack and Java Developer with expertise in React, JavaScript, Node.js, and AI-assisted workflows.">
+  
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="Images/creative-professional-initial-letter-d-p-code-logo-design-template-black-background_766194-2388.webp" type="image/x-icon">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="social-bar">
-        <a href="https://github.com/varun-program" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/varun-g-54a683284/" target="_blank">LinkedIn</a>
-        <a href="mailto:varunyt.sai@outlook.com" target="_blank">Email</a>
+
+  <!-- Floating Social Sidebar (Desktop) -->
+  <aside class="social-sidebar" aria-label="Social links">
+    <a href="https://github.com/varun-program" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub Profile">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/varun-g-54a683284" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn Profile">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </a>
+    <a href="mailto:varunyt.sai@outlook.com" class="social-icon-btn" title="Send Email">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </a>
+  </aside>
+
+  <!-- Sticky Glass Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand">
+        <div class="logo-symbol">V</div>
+        <div class="logo-text">Varun<span>.dev</span></div>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education & Certs</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-nav-action" id="btn-open-manager-nav" title="Manage / Add Portfolio Projects">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>Manage Projects</span>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-info">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span id="hero-status-text">Available for Developer Internships</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Hi, I'm <span class="text-gradient">Varun G</span><br>
+            Aspirant Developer & Software Creator
+          </h1>
+          
+          <p class="hero-subtitle">
+            Building responsive, performant web applications with <strong>Java</strong>, <strong>JavaScript</strong>, and <strong>React.js</strong>. Focused on creating real-world solutions with clean code, modern UX, and AI integration.
+          </p>
+          
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn-primary">
+              <span>Explore My Work</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <button class="btn-secondary" id="btn-view-resume">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <span>View Resume</span>
+            </button>
+            <a href="#contact" class="btn-secondary">
+              <span>Contact Me</span>
+            </a>
+          </div>
+
+          <div class="hero-stats-row" id="hero-stats-container">
+            <!-- Populated dynamically from portfolio-data.js -->
+            <div class="hero-stat-card">
+              <div class="stat-value">5+</div>
+              <div class="stat-label">Core Projects</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="stat-value">3</div>
+              <div class="stat-label">Certifications</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="stat-value">75.4%</div>
+              <div class="stat-label">B.Tech IT</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="stat-value">Java / JS</div>
+              <div class="stat-label">Core Languages</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">varun-profile.js</div>
+            </div>
+            <div class="terminal-code">
+              <p><span class="code-keyword">const</span> <span class="code-variable">developer</span> = {</p>
+              <p style="padding-left: 16px;"><span class="code-variable">name</span>: <span class="code-string">'Varun G'</span>,</p>
+              <p style="padding-left: 16px;"><span class="code-variable">role</span>: <span class="code-string">'Full-Stack Web & Java Dev'</span>,</p>
+              <p style="padding-left: 16px;"><span class="code-variable">location</span>: <span class="code-string">'Tiruppur, Tamil Nadu'</span>,</p>
+              <p style="padding-left: 16px;"><span class="code-variable">stack</span>: [<span class="code-string">'Java'</span>, <span class="code-string">'React'</span>, <span class="code-string">'Node.js'</span>, <span class="code-string">'SQL'</span>],</p>
+              <p style="padding-left: 16px;"><span class="code-variable">mindset</span>: <span class="code-string">'Solve Real-World Impact'</span></p>
+              <p>};</p>
+              <p class="code-comment">// Ready for developer opportunities</p>
+            </div>
+
+            <div class="terminal-quick-actions">
+              <button class="copy-pill-btn" data-copy="varunyt.sai@outlook.com" title="Click to copy email">
+                <span>📧 varunyt.sai@outlook.com</span>
+                <span style="color: var(--primary);">Copy</span>
+              </button>
+              <button class="copy-pill-btn" data-copy="+918825677192" title="Click to copy phone number">
+                <span>📱 +91 8825677192</span>
+                <span style="color: var(--primary);">Copy</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. About & Career Objective Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 01. Background</span>
+          <h2 class="section-title">About & Career Objective</h2>
+          <p class="section-desc">Get to know my engineering background, foundational goals, and core technical domains.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Career Objective</h3>
+            <p>
+              Motivated and detail-oriented entry-level web developer with hands-on experience in building responsive web applications using <strong>HTML, CSS, JavaScript, React.js, and Java</strong>.
+            </p>
+            <p>
+              Eager to contribute to innovative real-world projects while continuously growing technical skills in a collaborative environment. Seeking a <strong>developer internship</strong> where I can apply my knowledge, solve meaningful problems, and make a positive impact.
+            </p>
+            
+            <div class="interests-container" style="margin-top: 24px;">
+              <div class="persona-label">Core Areas of Interest</div>
+              <div class="interests-tags" id="interests-container">
+                <span class="interest-tag">Web Development</span>
+                <span class="interest-tag">Frontend Design</span>
+                <span class="interest-tag">Backend Systems</span>
+                <span class="interest-tag">Database Management</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <h3>Persona & Quick Facts</h3>
+            <div class="persona-matrix">
+              <div class="persona-item">
+                <div class="persona-label">Location</div>
+                <div class="persona-value">Tiruppur, Tamil Nadu</div>
+              </div>
+              <div class="persona-item">
+                <div class="persona-label">Degree</div>
+                <div class="persona-value">B.Tech IT (2023 - 2027)</div>
+              </div>
+              <div class="persona-item">
+                <div class="persona-label">Primary Languages</div>
+                <div class="persona-value">Tamil, English, Telugu</div>
+              </div>
+              <div class="persona-item">
+                <div class="persona-label">Collaboration</div>
+                <div class="persona-value">Internships & Projects</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+              <div class="persona-label" style="margin-bottom: 8px;">Quick Connect</div>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="https://github.com/varun-program" target="_blank" class="btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">
+                  GitHub Profile ↗
+                </a>
+                <a href="https://www.linkedin.com/in/varun-g-54a683284" target="_blank" class="btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">
+                  LinkedIn Profile ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Technical Skills Matrix -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 02. Expertise</span>
+          <h2 class="section-title">Technical Skills & Toolkit</h2>
+          <p class="section-desc">A comprehensive breakdown of programming languages, frontend frameworks, backend engines, and modern developer tools.</p>
+        </div>
+
+        <div class="skills-grid" id="skills-container">
+          <!-- Populated dynamically from portfolio-data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Projects Showcase (Dynamic Engine + Manager) -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 03. Featured Work</span>
+          <h2 class="section-title">Projects & Applications</h2>
+          <p class="section-desc">Interactive portfolio of full-stack web applications, AI tools, and frontend systems.</p>
+        </div>
+
+        <!-- Dynamic Controls: Filter, Search, & Project Management -->
+        <div class="projects-controls">
+          <div class="controls-top-row">
+            <div class="filter-tabs" id="filter-tabs">
+              <button class="filter-btn active" data-filter="all">All Projects</button>
+              <button class="filter-btn" data-filter="ai">AI & Smart Apps</button>
+              <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+              <button class="filter-btn" data-filter="react">React.js</button>
+              <button class="filter-btn" data-filter="javascript">JavaScript</button>
+            </div>
+
+            <div class="project-actions-group">
+              <button class="btn-manage-projects" id="btn-open-manager">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                <span>⚡ Manage / Add Projects</span>
+              </button>
+              <button class="btn-sync-github" id="btn-sync-github" title="Pull latest public repos from GitHub">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                <span>Sync GitHub</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" class="search-input" id="project-search" placeholder="Search projects by technology, keyword, or features (e.g., React, OCR, API, Finance)..." />
+          </div>
+        </div>
+
+        <!-- Dynamic Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
+          <!-- Populated dynamically from JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Education & Certifications Timeline -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 04. Milestones</span>
+          <h2 class="section-title">Education & Certifications</h2>
+          <p class="section-desc">Academic background, technical training credentials, and continuous learning achievements.</p>
+        </div>
+
+        <div class="edu-cert-tabs">
+          <button class="tab-btn active" data-tab="edu-pane">🎓 Academic Education</button>
+          <button class="tab-btn" data-tab="cert-pane">📜 Professional Certifications</button>
+        </div>
+
+        <!-- Academic Education Timeline -->
+        <div class="tab-content-pane active" id="edu-pane">
+          <div class="timeline" id="education-timeline">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Certifications Pane -->
+        <div class="tab-content-pane" id="cert-pane">
+          <div class="certs-grid" id="certs-container">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Contact & Connect Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 05. Get In Touch</span>
+          <h2 class="section-title">Let's Work Together</h2>
+          <p class="section-desc">I am open to internship opportunities, frontend/full-stack developer roles, and technical collaborations.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-card">
+            <div>
+              <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 12px;">Contact Information</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 24px;">
+                Feel free to reach out directly via email, phone, or LinkedIn. I usually respond within a few hours.
+              </p>
+
+              <div class="contact-direct-list">
+                <div class="contact-direct-item">
+                  <div class="contact-item-left">
+                    <span class="contact-icon">📧</span>
+                    <span class="contact-item-text">varunyt.sai@outlook.com</span>
+                  </div>
+                  <button class="btn-nav-action copy-pill-btn" data-copy="varunyt.sai@outlook.com" style="padding: 4px 10px; font-size: 0.75rem;">
+                    Copy
+                  </button>
+                </div>
+
+                <div class="contact-direct-item">
+                  <div class="contact-item-left">
+                    <span class="contact-icon">📱</span>
+                    <span class="contact-item-text">+91 8825677192</span>
+                  </div>
+                  <button class="btn-nav-action copy-pill-btn" data-copy="+918825677192" style="padding: 4px 10px; font-size: 0.75rem;">
+                    Copy
+                  </button>
+                </div>
+
+                <div class="contact-direct-item">
+                  <div class="contact-item-left">
+                    <span class="contact-icon">📍</span>
+                    <span class="contact-item-text">Tiruppur, Tamil Nadu, India</span>
+                  </div>
+                  <span style="font-size: 0.8rem; color: var(--accent-emerald); font-weight: 600;">Remote / Onsite</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 24px;">
+              <a href="https://www.linkedin.com/in/varun-g-54a683284" target="_blank" class="btn-secondary" style="flex: 1; justify-content: center;">
+                LinkedIn ↗
+              </a>
+              <a href="https://github.com/varun-program" target="_blank" class="btn-secondary" style="flex: 1; justify-content: center;">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 12px;">Send a Direct Message</h3>
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="sender-name" class="form-label">Your Name</label>
+                <input type="text" id="sender-name" class="form-control" placeholder="e.g. John Doe" required>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-email" class="form-label">Your Email</label>
+                <input type="email" id="sender-email" class="form-control" placeholder="e.g. john@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-message" class="form-label">Message / Internship Proposal</label>
+                <textarea id="sender-message" class="form-control" placeholder="Hi Varun, I saw your portfolio and would like to discuss..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                <span>Send Message via Email</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-text">
+        © <span id="current-year">2025</span> <strong>Varun G</strong> | Designed & Built with Pure Modern HTML, CSS & JavaScript
+      </div>
+      <div style="font-size: 0.8rem; color: var(--text-muted);">
+        Aspirant Developer • Full-Stack & AI Enthusiast • Tiruppur, Tamil Nadu
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODALS (<dialog>)
+       ========================================================================= -->
+
+  <!-- 1. Project Details Modal -->
+  <dialog id="project-detail-modal" class="custom-modal">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-project-title">Project Details</h3>
+      <button class="modal-close-btn" data-close-modal="project-detail-modal">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-project-body">
+      <!-- Injected dynamically -->
+    </div>
+    <div class="modal-footer" id="modal-project-footer">
+      <button class="btn-secondary" data-close-modal="project-detail-modal">Close</button>
+    </div>
+  </dialog>
+
+  <!-- 2. Project Manager & Quick Adder Modal -->
+  <dialog id="project-manager-modal" class="custom-modal" style="max-width: 760px;">
+    <div class="modal-header">
+      <h3 class="modal-title">⚡ Portfolio Project Manager</h3>
+      <button class="modal-close-btn" data-close-modal="project-manager-modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="manager-help-note">
+        <strong>💡 No Coding Required!</strong> Add a new project below to see it immediately on your portfolio. You can also click <strong>"Copy Config Code"</strong> to easily save your updates permanently to <code>data/portfolio-data.js</code>.
+      </div>
+
+      <!-- Add New Project Form -->
+      <form id="add-project-form" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
+        <h4 style="color: var(--primary); font-size: 1.1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">Add New Project</h4>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div>
+            <label class="form-label">Project Title *</label>
+            <input type="text" id="mgr-title" class="form-control" placeholder="e.g. AI Task Tracker" required />
+          </div>
+          <div>
+            <label class="form-label">Category *</label>
+            <select id="mgr-category" class="form-control" required style="background: #0d1326;">
+              <option value="ai">AI / Smart App</option>
+              <option value="react">React.js</option>
+              <option value="fullstack">Full-Stack</option>
+              <option value="javascript">JavaScript</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="form-label">Subtitle / Catchphrase *</label>
+          <input type="text" id="mgr-subtitle" class="form-control" placeholder="e.g. Production-Ready Task Manager with Automated Categorization" required />
+        </div>
+
+        <div>
+          <label class="form-label">Short Description *</label>
+          <textarea id="mgr-desc" class="form-control" style="min-height: 80px;" placeholder="Brief explanation of the project's purpose and impact..." required></textarea>
+        </div>
+
+        <div>
+          <label class="form-label">Key Highlights / Features (1 per line)</label>
+          <textarea id="mgr-highlights" class="form-control" style="min-height: 80px;" placeholder="• Built responsive UI with React hooks&#10;• Integrated REST APIs for live data&#10;• Implemented secure authentication"></textarea>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div>
+            <label class="form-label">Technologies (comma-separated)</label>
+            <input type="text" id="mgr-tech" class="form-control" placeholder="React, Node.js, Express, MongoDB" />
+          </div>
+          <div>
+            <label class="form-label">Badge Label</label>
+            <input type="text" id="mgr-badge" class="form-control" placeholder="e.g. Featured / Web App" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div>
+            <label class="form-label">Live Demo URL (optional)</label>
+            <input type="url" id="mgr-live" class="form-control" placeholder="https://..." />
+          </div>
+          <div>
+            <label class="form-label">GitHub URL (optional)</label>
+            <input type="url" id="mgr-github" class="form-control" placeholder="https://github.com/varun-program/..." />
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 8px;">
+          <button type="submit" class="btn-primary" style="flex: 1; justify-content: center;">
+            ➕ Add to Portfolio (Live Preview)
+          </button>
+        </div>
+      </form>
+
+      <!-- Active Projects List -->
+      <h4 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 12px;">Current Active Projects</h4>
+      <div class="manager-projects-list" id="mgr-projects-list">
+        <!-- Rendered dynamically -->
+      </div>
     </div>
 
-    <header>
-        <nav>
-            <h1 class="logo">Varun<span>.</span></h1>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="modal-footer" style="justify-content: space-between;">
+      <button class="btn-secondary" id="mgr-reset-btn" style="color: #ef4444;">
+        Reset to Defaults
+      </button>
+      <div style="display: flex; gap: 10px;">
+        <button class="btn-primary" id="mgr-export-btn" title="Copy updated code for data/portfolio-data.js">
+          📋 Copy Config Code
+        </button>
+        <button class="btn-secondary" data-close-modal="project-manager-modal">Close</button>
+      </div>
+    </div>
+  </dialog>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h2>Hello,I'm <span>Varun G </span></h2>
-            <p>A creative <strong>Developer</strong> passionate about building clean, interactive Applications.</p>
-            <a href="#projects" class="btn">Explore My work</a>      
+  <!-- 3. Resume Viewer Modal -->
+  <dialog id="resume-modal" class="custom-modal" style="max-width: 780px;">
+    <div class="modal-header">
+      <h3 class="modal-title">📄 Varun G — Resume Overview</h3>
+      <button class="modal-close-btn" data-close-modal="resume-modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; margin-bottom: 20px;">
+        <div>
+          <h2 style="font-size: 1.5rem; font-weight: 800;">VARUN G</h2>
+          <p style="color: var(--primary); font-weight: 600;">Aspirant Developer & Full-Stack Engineer</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Tiruppur, Tamil Nadu • varunyt.sai@outlook.com • +91 8825677192</p>
         </div>
-    </section>
-
-    <section id="about" class="about fade-in">
-        <h2>About Me</h2>
-        <p> I'm a passionate <strong>Java Developer</strong> and <strong>Full-Stack Web Developer</strong> who loves building powerful and user-friendly applications.  
-    I have hands-on experience with <strong>HTML, CSS, JavaScript, and Java</strong> for backend logic, along with frameworks and tools that bring ideas to life.  
-    I enjoy solving real-world problems through code and continuously learning new technologies to improve my craft.</p>
-    </section>
-
-    <section id="projects" class="projects fade-in">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="Images/Project-3.png" alt="Upgrade-Finance">
-                <div class="project-info">
-                    <h3>Upgrade  Finance</h3>
-                    <p>upgrade Finance is a modern, privacy-first, offline-first personal finance tracker. </p>
-                    <a href="https://github.com/varun-program/upgrade-finance" class="btn-small" target="_blank">View</a>
-            </div>
-            <div class="project-card">
-                <img src="Images/Project-1.png" alt="weather-app">
-                <div class="project-info">
-                    <h3>Weather App</h3>
-                    <p> A Simple Weather App Integrate with API's </p>
-                    <a href="https://varun-program.github.io/Weather-App/" class="btn-small" target="_blank">View</a>
-                </div>
-             <div class="project-card">
-                <img src="Images/Project-2.png" alt="weather-app">
-                <div class="project-info">
-                    <h3>Portfolio</h3>
-                    <p> A Portfolio with mondern them and responsive ui</p>
-                    <a href="https://varun-program.github.io/protfolio/" class="btn-small">View</a>
-                </div>
-
-            </div>
+        <div>
+          <a href="mailto:varunyt.sai@outlook.com?subject=Job%20Opportunity%20for%20Varun%20G" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">
+            Hire Varun
+          </a>
         </div>
-    </section>
+      </div>
 
-    <section id="contact" class="contact fade-in">
-        <h2>Let's Work Together</h2>
-        <p>I'm Open to collaborations,internships, and freelance projects.Reach out to me!</p>
-        <a href="mailto:varunyt.sai@outlook.com" class="btn">Contact Me</a>
-    </section>
-    <footer>
-    <p>© 2025 Varun G | Designed with ❤️ and pure HTML + CSS</p>
-  </footer>
-<script src="script.js"></script>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div>
+          <h4 style="color: var(--primary); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Career Objective</h4>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+            Motivated and detail-oriented entry-level web developer with hands-on experience in building responsive web applications using HTML, CSS, JavaScript, and Java. Eager to contribute to innovative real-world projects while continuously growing technical skills in a collaborative environment. Seeking a developer internship where I can apply my knowledge, solve meaningful problems, and make a positive impact.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--primary); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Core Projects</h4>
+          <ul style="color: var(--text-secondary); font-size: 0.9rem; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+            <li><strong>SmartExpense AI (React):</strong> AI-powered expense tracking system with OCR receipt scanning and real-time visualization dashboards.</li>
+            <li><strong>Upgrade Finance:</strong> Modern, privacy-first, offline-first personal finance tracker.</li>
+            <li><strong>Event Registration Portal (React):</strong> Responsive event registration system with real-time validation, admin panel, and CSV export.</li>
+            <li><strong>Weather Application (JavaScript):</strong> Public weather API integration with dynamic condition-based UI themes and error handling.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color: var(--primary); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Technical Stack</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            <strong>Languages:</strong> Java, JavaScript (ES6+)<br>
+            <strong>Frontend:</strong> HTML5, CSS3, React.js<br>
+            <strong>Backend & DB:</strong> Node.js, Express, SQL, NoSQL / MongoDB<br>
+            <strong>Tools & AI:</strong> Git, GitHub, Figma, Vercel, Antigravity, ChatGPT, Claude
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--primary); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Education</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            • <strong>B.Tech – Information Technology (2023 – 2027)</strong> | VSB College of Engineering Technical Campus, Coimbatore — <strong>75.4%</strong><br>
+            • <strong>Diploma – Computer Science & Engineering (2021 – 2023)</strong> | Konghu Vellalar Polytechnic College — <strong>73%</strong><br>
+            • <strong>SSLC (2020 – 2021)</strong> | Bharathi Matric Higher Secondary School — <strong>100%</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" data-close-modal="resume-modal">Close</button>
+      <a href="mailto:varunyt.sai@outlook.com?subject=Resume%20Request%20for%20Varun%20G" class="btn-primary">
+        Request Official PDF
+      </a>
+    </div>
+  </dialog>
+
+  <!-- Toast Container -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="data/portfolio-data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
