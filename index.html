@@ -19,7 +19,7 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar (Clean & Public) -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="#hero" class="nav-brand">
@@ -35,9 +35,6 @@
       </nav>
 
       <div class="nav-actions">
-        <button class="btn-manage-nav" id="btn-open-manager-nav" title="Add or edit projects">
-          + Manage Projects
-        </button>
         <a href="mailto:varunyt.sai@outlook.com" class="btn-primary-nav">
           Email Me
         </a>
@@ -49,7 +46,7 @@
   </header>
 
   <main>
-    <!-- 1. Hero Section (Clean, Simple, Natural) -->
+    <!-- 1. Hero Section -->
     <section class="hero" id="hero">
       <div class="container hero-container">
         <h1 class="hero-title">
@@ -143,7 +140,7 @@
           <p class="section-subtitle">Here are some of the web applications and projects I have built.</p>
         </div>
 
-        <!-- Filter and Actions Bar -->
+        <!-- Filter Tabs -->
         <div class="projects-bar">
           <div class="filter-tabs" id="filter-tabs">
             <button class="filter-pill active" data-filter="all">All</button>
@@ -153,7 +150,8 @@
             <button class="filter-pill" data-filter="javascript">JavaScript</button>
           </div>
 
-          <div class="projects-actions">
+          <!-- Secret Admin controls will appear here only when logged in as owner -->
+          <div class="projects-actions" id="admin-actions-bar" style="display: none;">
             <button class="btn-action-outline" id="btn-open-manager">
               + Manage Projects
             </button>
@@ -203,7 +201,7 @@
       </div>
     </section>
 
-    <!-- 6. Contact Section (Simple & Clean) -->
+    <!-- 6. Contact Section -->
     <section class="section" id="contact">
       <div class="container">
         <div class="section-heading">
@@ -246,7 +244,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer with subtle owner access -->
   <footer class="footer">
     <div class="container footer-container">
       <p>© <span id="current-year">2025</span> Varun G | Web & Java Developer</p>
@@ -254,6 +252,7 @@
         <a href="https://github.com/varun-program" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/varun-g-54a683284" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:varunyt.sai@outlook.com">Email</a>
+        <button class="footer-lock-btn" id="btn-footer-lock" title="Owner Access (Passcode Protected)">🔒</button>
       </div>
     </div>
   </footer>
@@ -262,7 +261,28 @@
        MODALS (<dialog>)
        ========================================================================= -->
 
-  <!-- 1. Project Details Modal -->
+  <!-- 1. Owner PIN Authentication Modal -->
+  <dialog id="owner-auth-modal" class="modal-dialog" style="max-width: 420px;">
+    <div class="modal-header">
+      <h3 class="modal-title">🔒 Owner Access</h3>
+      <button class="modal-close" data-close-modal="owner-auth-modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 14px;">
+        Please enter your Owner PIN to manage portfolio projects.
+      </p>
+      <form id="owner-pin-form">
+        <div style="margin-bottom: 14px;">
+          <input type="password" id="owner-pin-input" class="form-input" placeholder="Enter PIN (e.g. 2025)" required autocomplete="off" />
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+          Unlock Manager
+        </button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- 2. Project Details Modal -->
   <dialog id="project-detail-modal" class="modal-dialog">
     <div class="modal-header">
       <h3 class="modal-title" id="modal-project-title">Project Details</h3>
@@ -276,15 +296,15 @@
     </div>
   </dialog>
 
-  <!-- 2. Project Manager Modal -->
+  <!-- 3. Project Manager Modal (Owner Only) -->
   <dialog id="project-manager-modal" class="modal-dialog" style="max-width: 700px;">
     <div class="modal-header">
-      <h3 class="modal-title">Project Manager</h3>
+      <h3 class="modal-title">⚡ Portfolio Project Manager</h3>
       <button class="modal-close" data-close-modal="project-manager-modal">&times;</button>
     </div>
     <div class="modal-body">
       <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">
-        Add a new project below to update your portfolio live. Click <strong>"Copy Config Code"</strong> to save updates to <code>data/portfolio-data.js</code>.
+        Add a new project below. Click <strong>"Copy Config Code"</strong> to save updates directly into <code>data/portfolio-data.js</code>.
       </p>
 
       <form id="add-project-form" class="manager-form">
@@ -365,7 +385,7 @@
     </div>
   </dialog>
 
-  <!-- 3. Resume Modal -->
+  <!-- 4. Resume Modal -->
   <dialog id="resume-modal" class="modal-dialog" style="max-width: 720px;">
     <div class="modal-header">
       <h3 class="modal-title">Varun G — Resume</h3>

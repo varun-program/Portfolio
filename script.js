@@ -1,11 +1,14 @@
 /**
  * =========================================================================
- * VARUN G — PROFESSIONAL PORTFOLIO ENGINE
+ * VARUN G — DEVELOPER PORTFOLIO ENGINE (WITH OWNER SECURITY)
  * =========================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'portfolio_custom_projects_v1';
+  const AUTH_KEY = 'portfolio_owner_authenticated_v1';
+  const DEFAULT_PIN = '2025';
+
   let activeProjects = loadStoredProjects();
   let currentFilter = 'all';
   let searchQuery = '';
@@ -15,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSkills();
   initProjects();
   initEducationAndCerts();
+  initOwnerSecurity();
   initProjectManager();
   initGitHubSync();
   initCopyButtons();
@@ -44,7 +48,103 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 2. Profile & Year Init
+  // 2. Owner Security & Protected Access
+  // ------------------------------------------------------------------------
+  function isOwnerAuthenticated() {
+    return sessionStorage.getItem(AUTH_KEY) === 'true';
+  }
+
+  function setOwnerAuthenticated(status = true) {
+    if (status) {
+      sessionStorage.setItem(AUTH_KEY, 'true');
+    } else {
+      sessionStorage.removeItem(AUTH_KEY);
+    }
+    updateAdminVisibility();
+  }
+
+  function updateAdminVisibility() {
+    const adminBar = document.getElementById('admin-actions-bar');
+    if (adminBar) {
+      adminBar.style.display = isOwnerAuthenticated() ? 'flex' : 'none';
+    }
+  }
+
+  function promptOwnerAuth(callback) {
+    if (isOwnerAuthenticated()) {
+      if (typeof callback === 'function') callback();
+      return;
+    }
+
+    const authModal = document.getElementById('owner-auth-modal');
+    const pinInput = document.getElementById('owner-pin-input');
+    const pinForm = document.getElementById('owner-pin-form');
+
+    if (!authModal || !pinForm) return;
+
+    authModal.showModal();
+    if (pinInput) {
+      pinInput.value = '';
+      pinInput.focus();
+    }
+
+    pinForm.onsubmit = (e) => {
+      e.preventDefault();
+      const enteredPin = (pinInput ? pinInput.value.trim() : '');
+      const validPin = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.adminPin) ? window.PORTFOLIO_DATA.adminPin : DEFAULT_PIN;
+
+      if (enteredPin === validPin) {
+        setOwnerAuthenticated(true);
+        authModal.close();
+        showToast('🔓 Owner access unlocked.');
+        if (typeof callback === 'function') callback();
+      } else {
+        showToast('❌ Incorrect PIN. Access denied.');
+        if (pinInput) pinInput.value = '';
+      }
+    };
+  }
+
+  function initOwnerSecurity() {
+    // Check URL parameters (e.g. ?admin=true)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('admin') || urlParams.has('edit')) {
+      promptOwnerAuth();
+    }
+
+    updateAdminVisibility();
+
+    // Secret Keyboard Shortcut: Ctrl + Shift + A or Cmd + Shift + A
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'a') {
+        e.preventDefault();
+        promptOwnerAuth(() => {
+          const managerModal = document.getElementById('project-manager-modal');
+          if (managerModal) {
+            renderManagerProjectsList();
+            managerModal.showModal();
+          }
+        });
+      }
+    });
+
+    // Footer Lock Button
+    const footerLockBtn = document.getElementById('btn-footer-lock');
+    if (footerLockBtn) {
+      footerLockBtn.addEventListener('click', () => {
+        promptOwnerAuth(() => {
+          const managerModal = document.getElementById('project-manager-modal');
+          if (managerModal) {
+            renderManagerProjectsList();
+            managerModal.showModal();
+          }
+        });
+      });
+    }
+  }
+
+  // ------------------------------------------------------------------------
+  // 3. Profile & Year Init
   // ------------------------------------------------------------------------
   function initProfileData() {
     const yearEl = document.getElementById('current-year');
@@ -54,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 3. Skills Matrix Rendering
+  // 4. Skills Matrix Rendering
   // ------------------------------------------------------------------------
   function initSkills() {
     const data = window.PORTFOLIO_DATA;
@@ -67,8 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
       code: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>',
       layout: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>',
       database: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>',
-      tool: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>',
-      sparkles: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>'
+      tool: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>'
     };
 
     container.innerHTML = data.skills.map(cat => `
@@ -95,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 4. Projects Showcase Engine
+  // 5. Projects Showcase Engine
   // ------------------------------------------------------------------------
   function initProjects() {
     renderProjectGrid();
@@ -145,9 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filtered.length === 0) {
       grid.innerHTML = `
         <div class="projects-empty">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-muted); margin-bottom: 12px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <h3 style="font-size: 1.1rem; margin-bottom: 6px;">No projects found</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Try selecting 'All' or clearing your search term.</p>
+          <p>No projects match your filter.</p>
         </div>
       `;
       return;
@@ -179,10 +276,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="project-card-footer">
               <div class="project-links">
                 ${proj.liveUrl ? `<a href="${escapeHTML(proj.liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-link">Live Demo ↗</a>` : ''}
-                ${proj.githubUrl ? `<a href="${escapeHTML(proj.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-link" style="color: var(--accent-emerald);">GitHub ↗</a>` : ''}
+                ${proj.githubUrl ? `<a href="${escapeHTML(proj.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-link" style="color: var(--accent-green);">GitHub ↗</a>` : ''}
               </div>
               <button class="btn-card-details" data-open-project="${escapeHTML(proj.id)}">
-                Case Study & Highlights
+                Details
               </button>
             </div>
           </div>
@@ -199,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 5. Project Details Modal
+  // 6. Project Details Modal
   // ------------------------------------------------------------------------
   function openProjectDetailModal(id) {
     const project = activeProjects.find(p => p.id === id);
@@ -211,52 +308,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalFooter = document.getElementById('modal-project-footer');
     if (!modal || !modalBody) return;
 
-    modalTitle.textContent = `${project.title} — Case Study`;
+    modalTitle.textContent = project.title;
 
     const highlightsList = (project.highlights && project.highlights.length > 0)
-      ? project.highlights.map(h => `<li style="margin-bottom: 8px;">${escapeHTML(h)}</li>`).join('')
+      ? project.highlights.map(h => `<li style="margin-bottom: 6px;">${escapeHTML(h)}</li>`).join('')
       : `<li>${escapeHTML(project.shortDescription || '')}</li>`;
 
     modalBody.innerHTML = `
-      <div style="margin-bottom: 20px;">
-        <p style="font-size: 1.05rem; color: var(--primary); font-weight: 600; margin-bottom: 8px;">
+      <div style="margin-bottom: 18px;">
+        <p style="font-size: 1.05rem; color: var(--primary); font-weight: 600; margin-bottom: 6px;">
           ${escapeHTML(project.subtitle || project.title)}
         </p>
-        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 14px;">
           ${escapeHTML(project.shortDescription || '')}
         </p>
       </div>
 
-      <div style="margin-bottom: 20px;">
-        <h4 style="font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 10px;">
-          Architecture & Implementation Highlights
+      <div style="margin-bottom: 18px;">
+        <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px;">
+          Highlights
         </h4>
-        <ul style="color: var(--text-secondary); padding-left: 20px; font-size: 0.92rem; line-height: 1.7;">
+        <ul style="color: var(--text-secondary); padding-left: 18px; font-size: 0.92rem; line-height: 1.6;">
           ${highlightsList}
         </ul>
       </div>
 
-      <div style="margin-bottom: 16px;">
-        <h4 style="font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 10px;">
-          Technical Stack
+      <div style="margin-bottom: 14px;">
+        <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px;">
+          Technologies Used
         </h4>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-          ${(project.technologies || []).map(t => `<span class="tech-pill" style="font-size: 0.82rem; padding: 4px 10px; color: var(--text-primary); border-color: var(--border-hover);">${escapeHTML(t)}</span>`).join('')}
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          ${(project.technologies || []).map(t => `<span class="tech-pill" style="font-size: 0.8rem; padding: 3px 8px;">${escapeHTML(t)}</span>`).join('')}
         </div>
       </div>
     `;
 
     modalFooter.innerHTML = `
       <button class="btn-secondary" data-close-modal="project-detail-modal">Close</button>
-      ${project.githubUrl ? `<a href="${escapeHTML(project.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="border-color: var(--accent-emerald); color: var(--accent-emerald);">GitHub Source ↗</a>` : ''}
-      ${project.liveUrl ? `<a href="${escapeHTML(project.liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn-primary">Launch Project ↗</a>` : ''}
+      ${project.githubUrl ? `<a href="${escapeHTML(project.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="border-color: var(--accent-green); color: var(--accent-green);">GitHub ↗</a>` : ''}
+      ${project.liveUrl ? `<a href="${escapeHTML(project.liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn-primary">View App ↗</a>` : ''}
     `;
 
     modal.showModal();
   }
 
   // ------------------------------------------------------------------------
-  // 6. Education & Certifications Timeline
+  // 7. Education & Certifications
   // ------------------------------------------------------------------------
   function initEducationAndCerts() {
     const data = window.PORTFOLIO_DATA;
@@ -271,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="edu-period">${escapeHTML(item.period)}</span>
           </div>
           <div class="edu-inst">${escapeHTML(item.institution)}</div>
-          <div class="edu-grade">Academic Score: ${escapeHTML(item.grade)} • ${escapeHTML(item.badge || '')}</div>
+          <div class="edu-grade">${escapeHTML(item.grade)} • ${escapeHTML(item.badge || '')}</div>
           <p class="edu-desc">${escapeHTML(item.highlights || '')}</p>
         </div>
       `).join('');
@@ -289,7 +386,6 @@ document.addEventListener('DOMContentLoaded', () => {
       `).join('');
     }
 
-    // Tab Switcher
     const tabBtns = document.querySelectorAll('.edu-cert-tabs .tab-btn');
     tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -305,22 +401,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 7. Dynamic Project Manager (Add / Edit / Export)
+  // 8. Project Manager (Protected)
   // ------------------------------------------------------------------------
   function initProjectManager() {
     const managerModal = document.getElementById('project-manager-modal');
-    const openNavBtn = document.getElementById('btn-open-manager-nav');
     const openSectionBtn = document.getElementById('btn-open-manager');
     const addForm = document.getElementById('add-project-form');
     const exportBtn = document.getElementById('mgr-export-btn');
     const resetBtn = document.getElementById('mgr-reset-btn');
 
     const openMgr = () => {
-      renderManagerProjectsList();
-      managerModal.showModal();
+      promptOwnerAuth(() => {
+        renderManagerProjectsList();
+        managerModal.showModal();
+      });
     };
 
-    if (openNavBtn && managerModal) openNavBtn.addEventListener('click', openMgr);
     if (openSectionBtn && managerModal) openSectionBtn.addEventListener('click', openMgr);
 
     if (addForm) {
@@ -344,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || `proj-${Date.now()}`;
         const highlights = rawHighlights ? rawHighlights.split('\n').map(l => l.replace(/^[•\-\*]\s*/, '').trim()).filter(Boolean) : [desc];
-        const technologies = rawTech ? rawTech.split(',').map(t => t.trim()).filter(Boolean) : ['JavaScript', 'React'];
+        const technologies = rawTech ? rawTech.split(',').map(t => t.trim()).filter(Boolean) : ['JavaScript', 'HTML', 'CSS'];
 
         const newProject = {
           id,
@@ -354,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
           categoryLabel: category.toUpperCase(),
           featured: true,
           image: 'Images/Project-3.png',
-          badge: badge || 'New Project',
+          badge: badge || 'Project',
           shortDescription: desc,
           highlights,
           technologies,
@@ -388,7 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
-        if (confirm('Reset all projects back to the default resume configuration?')) {
+        if (confirm('Reset all projects back to default configuration?')) {
           localStorage.removeItem(STORAGE_KEY);
           activeProjects = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.projects) ? [...window.PORTFOLIO_DATA.projects] : [];
           renderProjectGrid();
@@ -412,7 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="manager-item">
         <div class="manager-item-title">
           <span>${idx + 1}. ${escapeHTML(p.title)}</span>
-          <span style="font-size: 0.75rem; color: var(--primary); margin-left: 8px;">(${escapeHTML(p.category)})</span>
+          <span style="font-size: 0.75rem; color: var(--primary); margin-left: 6px;">(${escapeHTML(p.category)})</span>
         </div>
         <button class="btn-delete-proj" data-delete-project="${escapeHTML(p.id)}" title="Delete project">
           Delete
@@ -435,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 8. GitHub API Live Sync
+  // 9. GitHub API Live Sync (Protected)
   // ------------------------------------------------------------------------
   function initGitHubSync() {
     const syncBtn = document.getElementById('btn-sync-github');
@@ -498,16 +594,13 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast('Could not connect to GitHub API.');
       } finally {
         syncBtn.disabled = false;
-        syncBtn.innerHTML = `
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-          <span>Sync GitHub</span>
-        `;
+        syncBtn.innerHTML = 'Sync from GitHub';
       }
     });
   }
 
   // ------------------------------------------------------------------------
-  // 9. Clipboard Copy Handling
+  // 10. Clipboard Copy & Toast Feedback
   // ------------------------------------------------------------------------
   function initCopyButtons() {
     document.addEventListener('click', (e) => {
@@ -518,7 +611,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!text) return;
 
       navigator.clipboard.writeText(text).then(() => {
-        showToast(`Copied to clipboard: ${text}`);
+        showToast(`Copied: ${text}`);
       }).catch(() => {
         showToast('Failed to copy to clipboard.');
       });
@@ -543,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 10. Native Modal Listeners
+  // 11. Modal Controls
   // ------------------------------------------------------------------------
   function initModalListeners() {
     const resumeBtn = document.getElementById('btn-view-resume');
@@ -582,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 11. Navbar ScrollSpy & Mobile Navigation
+  // 12. Navbar ScrollSpy & Mobile Navigation
   // ------------------------------------------------------------------------
   function initNavbarScrollSpy() {
     const navLinks = document.querySelectorAll('.nav-link');
@@ -604,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
       let current = '';
-      const scrollPos = window.scrollY + 180;
+      const scrollPos = window.scrollY + 160;
 
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -624,7 +717,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ------------------------------------------------------------------------
-  // 12. Contact Form
+  // 13. Contact Form
   // ------------------------------------------------------------------------
   function initContactForm() {
     const form = document.getElementById('contact-form');
@@ -637,7 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = document.getElementById('sender-email').value.trim();
       const msg = document.getElementById('sender-message').value.trim();
 
-      const subject = encodeURIComponent(`Developer Opportunity Inquiry from ${name}`);
+      const subject = encodeURIComponent(`Message from ${name}`);
       const body = encodeURIComponent(`Hi Varun,\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${msg}\n`);
 
       showToast('Opening email client...');

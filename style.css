@@ -1108,3 +1108,18 @@ dialog.modal-dialog::backdrop {
     align-items: flex-start;
   }
 }
+
+/* Subtle Footer Lock Icon for Owner Access */
+.footer-lock-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+  padding: 0 4px;
+}
+.footer-lock-btn:hover {
+  opacity: 1;
+}
