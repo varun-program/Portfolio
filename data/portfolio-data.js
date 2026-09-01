@@ -2,30 +2,17 @@
  * =========================================================================
  * VARUN G - PORTFOLIO DATA CONFIGURATION
  * =========================================================================
- * Easily manage, add, or edit your projects and resume details here.
- * You can also use the in-page "⚡ Manage Projects" tool to add new projects
- * and export the updated configuration automatically!
+ * Easily manage, add, or edit your projects and details here.
  */
 
 const PORTFOLIO_DATA = {
   profile: {
     name: "Varun G",
-    firstName: "Varun",
-    lastName: "G",
-    title: "Aspirant Developer & Full-Stack Engineer",
-    statusBadge: "Available for Developer Internships",
-    location: "Tiruppur, Tamil Nadu, India",
+    title: "Web & Java Developer",
     email: "varunyt.sai@outlook.com",
-    phone: "+91 8825677192",
     github: "https://github.com/varun-program",
     linkedin: "https://www.linkedin.com/in/varun-g-54a683284",
-    bio: "Motivated and detail-oriented entry-level web developer with hands-on experience in building responsive web applications using HTML, CSS, JavaScript, React.js, and Java. Eager to contribute to innovative real-world projects while continuously expanding technical skills in a collaborative environment.",
-    stats: [
-      { label: "Core Projects", value: "5+" },
-      { label: "Certifications", value: "3" },
-      { label: "Academic Record", value: "75.4%" },
-      { label: "Languages", value: "Java & JS" }
-    ],
+    bio: "I'm a developer who enjoys building clean, interactive web applications and software projects. I have hands-on experience with HTML, CSS, JavaScript, React.js, and Java.",
     areasOfInterest: [
       "Web Development",
       "Frontend Design",
@@ -41,47 +28,38 @@ const PORTFOLIO_DATA = {
 
   skills: [
     {
-      category: "Programming Languages",
+      category: "Languages",
       icon: "code",
       items: [
-        { name: "Java", level: "Advanced", desc: "OOP, System Architecture, Collections" },
-        { name: "JavaScript (ES6+)", level: "Advanced", desc: "Async/Await, DOM APIs, Modern ESNext" }
+        { name: "Java", level: "Core", desc: "OOP, Logic, Backend" },
+        { name: "JavaScript", level: "ES6+", desc: "DOM, Async, Web APIs" }
       ]
     },
     {
-      category: "Frontend Development",
+      category: "Frontend",
       icon: "layout",
       items: [
-        { name: "React.js", level: "Proficient", desc: "Hooks, SPA routing, State flows" },
-        { name: "HTML5 & Semantic UI", level: "Expert", desc: "SEO, Accessibility, Clean Structure" },
-        { name: "CSS3 & Modern Layouts", level: "Expert", desc: "Flexbox, Grid, Glassmorphism, Animations" },
-        { name: "Responsive Design", level: "Expert", desc: "Mobile-first, Adaptive UI systems" }
+        { name: "React.js", level: "Proficient", desc: "Components, Hooks, State" },
+        { name: "HTML5 & CSS3", level: "Advanced", desc: "Semantic tags, Flexbox, Grid" },
+        { name: "Responsive UI", level: "Advanced", desc: "Mobile, Tablet & Desktop layouts" }
       ]
     },
     {
       category: "Backend & Databases",
       icon: "database",
       items: [
-        { name: "Node.js & Express", level: "Proficient", desc: "RESTful APIs, MVC, Middleware" },
-        { name: "SQL", level: "Proficient", desc: "Relational queries, Schema design" },
-        { name: "NoSQL / MongoDB", level: "Proficient", desc: "Document models, Aggregations" }
+        { name: "Node.js", level: "Proficient", desc: "Express, REST APIs" },
+        { name: "SQL", level: "Proficient", desc: "Relational queries" },
+        { name: "NoSQL / MongoDB", level: "Proficient", desc: "Collections, Documents" }
       ]
     },
     {
-      category: "Tools & Methodologies",
+      category: "Tools & AI",
       icon: "tool",
       items: [
-        { name: "Git & GitHub", level: "Advanced", desc: "Version control, branching, PRs" },
-        { name: "Figma", level: "Intermediate", desc: "UI wireframing & prototype design" },
-        { name: "Vercel & Cloud", level: "Proficient", desc: "CI/CD pipelines & live hosting" }
-      ]
-    },
-    {
-      category: "AI & Productivity",
-      icon: "sparkles",
-      items: [
-        { name: "Antigravity", level: "Advanced", desc: "Agentic AI workflows & SDKs" },
-        { name: "ChatGPT & Claude", level: "Advanced", desc: "Prompt engineering & AI coding assistance" }
+        { name: "Git & GitHub", level: "Advanced", desc: "Version control" },
+        { name: "Figma", level: "Intermediate", desc: "UI Design & Wireframes" },
+        { name: "AI Tools", level: "Proficient", desc: "ChatGPT, Claude, Antigravity" }
       ]
     }
   ],
@@ -90,20 +68,19 @@ const PORTFOLIO_DATA = {
     {
       id: "smartexpense-ai",
       title: "SmartExpense AI",
-      subtitle: "AI-Powered Expense Tracker with OCR Receipt Scanner",
+      subtitle: "Expense tracker with automated categorization & OCR receipt scanning",
       category: "ai",
-      categoryLabel: "AI / React",
+      categoryLabel: "React & AI",
       featured: true,
       image: "Images/Project-3.png",
-      badge: "Featured AI Project",
-      shortDescription: "Engineered an AI-powered expense tracking system with automated categorization of transactions, intelligent OCR receipt scanning, and interactive analytics dashboards.",
+      badge: "React",
+      shortDescription: "An AI-powered expense tracking system with automated categorization of transactions, receipt scanning using OCR technology, and an interactive spending analytics dashboard.",
       highlights: [
-        "Automated transaction categorization powered by Gemini AI models.",
-        "Integrated intelligent receipt scanning with OCR technology to seamlessly parse financial line items.",
-        "Developed an interactive analytics dashboard featuring real-time data visualization of spending habits and trends.",
-        "Engineered full-stack security with JWT authentication, protected routes, and PDF statement generation."
+        "Engineered an AI-powered expense tracking system with automated categorization of transactions.",
+        "Integrated intelligent receipt scanning using OCR technology to extract key financial data points seamlessly.",
+        "Developed an interactive analytics dashboard featuring real-time data visualization of spending habits and trends."
       ],
-      technologies: ["React.js", "Node.js", "Express", "MongoDB", "OCR AI", "Tailwind CSS"],
+      technologies: ["React.js", "Node.js", "Express", "MongoDB", "OCR AI"],
       liveUrl: "https://github.com/varun-program/upgrade-finance",
       githubUrl: "https://github.com/varun-program/upgrade-finance",
       updatedAt: "2025"
@@ -111,20 +88,19 @@ const PORTFOLIO_DATA = {
     {
       id: "upgrade-finance",
       title: "Upgrade Finance",
-      subtitle: "Privacy-First Offline Financial Tracker",
+      subtitle: "Privacy-first personal finance tracker",
       category: "fullstack",
       categoryLabel: "Full-Stack",
       featured: true,
       image: "Images/Project-3.png",
-      badge: "Privacy First",
-      shortDescription: "A modern, privacy-first, offline-first personal finance platform allowing users to manage budgets, analyze expenses, and maintain full local data autonomy.",
+      badge: "Finance",
+      shortDescription: "A modern, privacy-first, offline-first personal finance tracker to manage budgets, transactions, and expense analytics.",
       highlights: [
-        "Offline-first architecture ensuring lightning-fast access with local caching and data persistence.",
-        "Comprehensive category budgets with visual progression indicators and spending alerts.",
-        "Export and import mechanisms supporting encrypted backup and CSV analysis.",
-        "Clean, intuitive glassmorphic interface optimized for high productivity."
+        "Offline-first architecture with fast local data storage.",
+        "Category budgets with visual progression indicators and spending alerts.",
+        "Clean, intuitive interface optimized for tracking daily expenses."
       ],
-      technologies: ["JavaScript", "HTML5", "CSS3", "Local Storage", "Data Analytics"],
+      technologies: ["JavaScript", "HTML5", "CSS3", "Local Storage"],
       liveUrl: "https://github.com/varun-program/upgrade-finance",
       githubUrl: "https://github.com/varun-program/upgrade-finance",
       updatedAt: "2025"
@@ -132,20 +108,19 @@ const PORTFOLIO_DATA = {
     {
       id: "event-registration-portal",
       title: "Event Registration Portal",
-      subtitle: "Full-Featured Event Registration & Admin Management System",
+      subtitle: "Event registration system with admin management",
       category: "react",
       categoryLabel: "React.js",
       featured: true,
       image: "Images/Project-2.png",
-      badge: "Web Application",
-      shortDescription: "Built a responsive event registration system with real-time validation, comprehensive admin attendee management, and CSV report export.",
+      badge: "React",
+      shortDescription: "A responsive event registration system with real-time form validation, participant management admin panel, and CSV export functionality.",
       highlights: [
-        "Built a responsive registration flow with instant client-side and server validation.",
-        "Developed an administrative control panel for managing participants, seats, and event schedules.",
-        "Enabled CSV export functionality to streamline organizational reporting and attendee verification.",
-        "Implemented clean state handling with customizable participant tiers."
+        "Built a responsive event registration system with real-time form validation.",
+        "Developed an admin panel for managing participants and event details efficiently.",
+        "Enabled CSV export functionality to streamline reporting and data analysis."
       ],
-      technologies: ["React.js", "JavaScript", "CSS Modules", "CSV Export", "REST API"],
+      technologies: ["React.js", "JavaScript", "CSS", "CSV Export"],
       liveUrl: "https://github.com/varun-program",
       githubUrl: "https://github.com/varun-program",
       updatedAt: "2025"
@@ -153,39 +128,39 @@ const PORTFOLIO_DATA = {
     {
       id: "weather-app",
       title: "Weather Application",
-      subtitle: "Real-Time Global Weather Forecasting Interface",
+      subtitle: "Live weather forecast application with API integration",
       category: "javascript",
       categoryLabel: "JavaScript",
       featured: false,
       image: "Images/Project-1.png",
-      badge: "API Integration",
-      shortDescription: "Integrated public weather APIs to fetch, compute, and render real-time meteorological forecasts with dynamic UI themes based on conditions.",
+      badge: "JavaScript",
+      shortDescription: "A simple weather application that integrates a public weather API to fetch and display real-time forecast data with error handling and dynamic updates.",
       highlights: [
-        "Integrated public weather APIs to fetch and display accurate real-time forecasts and 5-day outlooks.",
-        "Implemented robust error handling for invalid inputs, network timeouts, and geolocation fallback.",
-        "Designed dynamic interface themes that adapt automatically based on current weather conditions."
+        "Integrated a public weather API to fetch and display real-time forecast data.",
+        "Implemented error handling for invalid inputs and API failures to ensure reliability.",
+        "Designed a simple, intuitive interface with dynamic updates based on user location or search."
       ],
-      technologies: ["JavaScript (ES6+)", "Fetch API", "HTML5", "CSS3 Animations"],
+      technologies: ["JavaScript", "Weather API", "HTML5", "CSS3"],
       liveUrl: "https://varun-program.github.io/Weather-App/",
       githubUrl: "https://github.com/varun-program/Weather-App",
       updatedAt: "2024"
     },
     {
       id: "personal-portfolio",
-      title: "Personal Developer Portfolio",
-      subtitle: "Bespoke Cyber-Glassmorphic Interactive Portfolio",
+      title: "Personal Portfolio",
+      subtitle: "Responsive developer portfolio",
       category: "javascript",
-      categoryLabel: "HTML / CSS / JS",
+      categoryLabel: "HTML / CSS",
       featured: false,
       image: "Images/Project-2.png",
-      badge: "Live Website",
-      shortDescription: "Designed and implemented a fully responsive layout with dynamic project management, interactive resume sync, and high performance.",
+      badge: "HTML & CSS",
+      shortDescription: "Designed and implemented a fully responsive layout optimized for mobile, tablet, and desktop with modular CSS for maintainability.",
       highlights: [
         "Designed and implemented a fully responsive layout optimized for mobile, tablet, and desktop.",
-        "Applied clean UI principles with semantic HTML, modular CSS, and zero framework bloat.",
+        "Applied clean UI principles with semantic HTML and modular CSS for maintainability.",
         "Showcased personal projects and skills with interactive navigation and smooth user experience."
       ],
-      technologies: ["HTML5", "CSS3", "JavaScript", "Vercel", "Glassmorphism"],
+      technologies: ["HTML5", "CSS3", "JavaScript"],
       liveUrl: "https://varun-program.github.io/Portfolio/",
       githubUrl: "https://github.com/varun-program/Portfolio",
       updatedAt: "2025"
@@ -198,8 +173,8 @@ const PORTFOLIO_DATA = {
       institution: "VSB College of Engineering Technical Campus, Coimbatore",
       period: "2023 – 2027",
       grade: "75.4% (Undergraduate)",
-      badge: "Current Degree",
-      highlights: "Focusing on Software Engineering, Data Structures, Web Technologies, Database Systems, and Object-Oriented System Design."
+      badge: "Current",
+      highlights: "Undergraduate degree in Information Technology with coursework in Data Structures, Java, Database Systems, and Web Technologies."
     },
     {
       degree: "Diploma – Computer Science & Engineering",
@@ -207,41 +182,40 @@ const PORTFOLIO_DATA = {
       period: "2021 – 2023",
       grade: "73% (Diploma)",
       badge: "Completed",
-      highlights: "Fundamental coursework in computer programming, computer networks, digital electronics, and relational database management."
+      highlights: "Coursework in Computer Science fundamentals, programming, and database management."
     },
     {
       degree: "SSLC (10th Standard)",
       institution: "Bharathi Matric Higher Secondary School, Vijayamagalam",
       period: "2020 – 2021",
       grade: "100%",
-      badge: "Centum Distinction",
-      highlights: "Achieved a perfect 100% academic score in secondary school board examinations."
+      badge: "SSLC",
+      highlights: "Completed secondary school education with 100% academic score."
     }
   ],
 
   certifications: [
     {
-      title: "Full Stack Web Development",
-      issuer: "CORIZO",
-      badge: "Full Stack",
-      desc: "Comprehensive training covering modern frontend architecture, backend REST APIs, database design, and end-to-end web deployment."
-    },
-    {
       title: "JavaScript Certification",
       issuer: "GUVI",
-      badge: "Certified",
-      desc: "Advanced JavaScript concepts including asynchronous programming, closures, ES6+ features, and DOM manipulation."
+      badge: "GUVI",
+      desc: "Certification in JavaScript programming fundamentals, ES6+ features, and DOM manipulation."
     },
     {
       title: "HTML & CSS Certification",
       issuer: "GUVI",
-      badge: "Certified",
-      desc: "Modern semantic web layouts, responsive design patterns, CSS Grid & Flexbox, and accessibility standards."
+      badge: "GUVI",
+      desc: "Certification in HTML5 semantic structure, CSS3 styling, and responsive web design."
+    },
+    {
+      title: "Full Stack Web Development",
+      issuer: "CORIZO",
+      badge: "CORIZO",
+      desc: "Training in Full Stack Web Development covering frontend, backend APIs, and databases."
     }
   ]
 };
 
-// Expose globally for browser usage
 if (typeof window !== "undefined") {
   window.PORTFOLIO_DATA = PORTFOLIO_DATA;
 }
